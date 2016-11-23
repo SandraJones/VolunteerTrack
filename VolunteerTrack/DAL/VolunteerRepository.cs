@@ -7,5 +7,6 @@ namespace VolunteerTrack.DAL
 {
     public class VolunteerRepository
     {
+        VolunteerRepository repo = new VolunteerRepository();
     }
 }
