@@ -18,6 +18,7 @@ namespace VolunteerTrack.Models
         public int YTDMileage { get; set; }
         public int DollarsContributed { get; set; }
         public int YTDDollarsContributed { get; set; }
+        public string FocusId { get; set; }
 
     }
 }
