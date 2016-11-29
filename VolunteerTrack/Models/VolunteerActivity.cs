@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,10 +8,13 @@ namespace VolunteerTrack.Models
 {
     public class VolunteerActivity
     {
-        public DateTime date { get; set; }
-        public int numberHours { get; set; }
-        public int mileage { get; set; }
-        public int DollarsContributed { get; set; }
+        [Key]
+        public int ActivityId { get; set; }
         public string OrgName { get; set; }
+        public DateTime Date { get; set; }
+        public int NumberHours { get; set; }
+        public int Mileage { get; set; }
+        public int DollarsContributed { get; set; }
+       
     }
 }
