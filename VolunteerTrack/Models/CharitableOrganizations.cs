@@ -12,5 +12,6 @@ namespace VolunteerTrack.Models
         public int OrgId { get; set; }//assigned by DB
         public string OrgName { get; set; }
         public List<CharityFocus> Focus { get; set; }
+        public int Location { get; set; }
     }
 }
