@@ -1,17 +1,39 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewData["Title"] = "Track It";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="options">
+    <form action="form.html" method="POST">
+        <fieldset>
+            <p>
+                <label>Name of Organization Where You Volunteered</label>
+                <input type="text" organization="nameOrg" class="field" required pattern="[a-zA-Z0-9]+" />
+            </p>
+            <p>
+                <label>Number of Hours You Volunteered</label>
+                <input type="text" numberHours="numberHours" class="field" required pattern="[a-zA-Z0-9]+" />
+            </p>
+            <p>
+                <label>Number of Miles Driven Round Trip</label>
+                <input type="text" milesDriven="milesDriven" class="field" required pattern="[a-zA-Z0-9]+" />
+            </p>
+            <p>
+                <label>DollarsContributed</label>
+                <input type="text" milesDriven="milesDriven" class="field" required pattern="[a-zA-Z0-9]+" />
+            </p>
+            <p>
+                <label>Date</label>
+                <input type="text" date="date" class="field" required pattern="[a-zA-Z0-9]+" />
+            </p>
+           
+            <p><label>Total hours volunteered this year:</label></p>
+            
+            <p><label>Total mileage for the year:</label></p>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+            <p><label>Total monetary contributions for the year:</label></p>
+
+        </fieldset>
+    </form>
+</div>
