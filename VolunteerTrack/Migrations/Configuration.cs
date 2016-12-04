@@ -27,77 +27,77 @@ namespace VolunteerTrack.Migrations
             //    );
             //
         }
-        public class CharitableORganizations
-        {       
-            OrgName: Boys&GirlsClub,
-            Focus: Children,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: BoyScoutsOfAmerica,
-            Focus: Children,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: GirlScouts,
-            Focus: Children,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: SafeHaven,
-            Focus: Women&Children,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: FriendsOfLongHunterStatePark,
-            Focus: Environment,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: RoomAtTheInn,
-            Focus: Homelessness,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: MagdaleneHouse,
-            Focus: Women,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: NashvilleRescueMission,
-            Focus: Homelessness,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: HandsOnNashville,
-            Focus: Environment,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: MercyMinistries,
-            Focus: Women,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: Boys&GirlsClub,
-            Focus: Children,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: OasisCenter,
-            Focus: Children,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: RedCross,
-            Focus: Emergency,
-            Location: url{'https://google.com/api/etcetc.'}
-        },
-        {
-            OrgName: SecondHarvestFoodBank,
-            Focus: Hunger,
-            Location: url{'https://google.com/api/etcetc.'}
-        }
+        //    public class CharitableORganizations
+        //    {       
+        //        OrgName: Boys&GirlsClub,
+        //        FocusName: Children,
+        //        Location: url{'https://google.com/api/etcetc.??????????'}  another question, can you seed part of a DB table and seed the other part later?
+        //    },
+        //    {
+        //        OrgName: BoyScoutsOfAmerica,
+        //        FocusName: Children,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: GirlScouts,
+        //        FocusName: Children,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: SafeHaven,
+        //        FocusName: Women&Children,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: FriendsOfLongHunterStatePark,
+        //        FocusName: Environment,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: RoomAtTheInn,
+        //        FocusName: Homelessness,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: MagdaleneHouse,
+        //        FocusName: Women,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: NashvilleRescueMission,
+        //        FocusName: Homelessness,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: HandsOnNashville,
+        //        FocusName: Environment,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: MercyMinistries,
+        //        FocusName: Women,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: Boys&GirlsClub,
+        //        FocusName: Children,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: OasisCenter,
+        //        FocusName: Children,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: RedCross,
+        //        FocusName: Emergency,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    },
+        //    {
+        //        OrgName: SecondHarvestFoodBank,
+        //        FocusName: Hunger,
+        //        Location: url{'https://google.com/api/etcetc.'}
+        //    }
     }
 }
 
