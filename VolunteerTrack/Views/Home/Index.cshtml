@@ -1,93 +1,59 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="carousel-caption" role="option">
-                <p>
-                    Hands On Nashville is a great site to view if you want to get
-                    involved in your community, and you live in Nashville.
-                    Click the button to learn more about HON.
-                    <a class="btn btn-default" href="https://www.hon.org/HOC__Affiliate_Home_Page">
-                        VOLUNTEER!
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="carousel-caption" role="option">
-                <p>
-                    The Nashville Rescue Mission is a very worthy organization that is a great place
-                    to volunteer or make dollar contributions to assist the homeless. Please
-                    click on this link to see volunteer opportunities with the Rescue Mission.
-                    <a class="btn btn-default" href="https://nashvillerescuemission.org/">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
- <div class="row">
-    <div class="col-md-3">
-        <h2>VolunteerTrack</h2>
-        <ul></ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Why use VolunteerTrack?</h2>
+    <div>
         <p>
-        VolunteerTrack is a quick and easy way to keep track of your volunteer
-        hours, mileage, and charitable contributions. When it comes time to do
-        your taxes, you'll be glad you used it. To see
-        the tracking form, click here!
-        <a class="btn btn-default" href="~/Home/About">Track Form</a>
+            Hands On Nashville is a great site to view if you want to get
+            involved in your community, and you live in Nashville.
+            Click the button to learn more about HandsOnNashville
+            <a class="btn btn-default" href="https://www.hon.org/HOC__Affiliate_Home_Page">Have fun and VOLUNTEER!</a>
         </p>
+    </div>
+        <div>
+            <p>
+                The Nashville Rescue Mission is a very worthy organization that is a great place
+                to volunteer or make dollar contributions to assist the homeless. Please
+                click on this link to see volunteer opportunities with the Rescue Mission.
+                <a class="btn btn-default" href="https://nashvillerescuemission.org/">
+                    Have fun and VOLUNTEER!
+                </a>
+            </p>
+        </div>
+     <div class="row">
+        <div class="col-md-9">
+            <h2>VolunteerTrack</h2>
+            <p>
+            VolunteerTrack is a quick and easy way to keep track of your volunteer
+            hours, mileage, and charitable contributions. When it comes time to do
+            your taxes, you'll be glad you used it. To see
+            the tracking form, click here!
+            <a class="btn btn-default" href="~/Home/About">Track Form</a>
+            </p>
+         </div>
      </div>
- </div>
 
-<div class="mapPlacement">
-    <style>
-        #map {
-            width: 60%;
-            height: 400px;
-            background-color: grey;
+    <div class="mapPlacement">
+        <style>
+            #map {
+                width: 60%;
+                height: 400px;
+                background-color: grey;
+            }
+        </style>
+    </div>
+    <script>
+        function initMap() {
+            var uluru = { lat: 36.138, lng: -86.754 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
         }
-    </style>
-</div>
-<script>
-    function initMap() {
-        var uluru = { lat: 36.138, lng: -86.754 };
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyYRivEIIvOGn2A8QyOlrdUE9js8PGOwY&callback=initMap">
-</script>
-</div>
-
-
-
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyYRivEIIvOGn2A8QyOlrdUE9js8PGOwY&callback=initMap">
+    </script>
