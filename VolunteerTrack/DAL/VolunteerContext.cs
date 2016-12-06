@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using VolunteerTrack.Models;
 
 namespace VolunteerTrack.DAL
 {
-    public class VolunteerContext: DbContext
+    public class VolunteerContext : DbContext
     {
         // 'virtual' is for Moq during testing
         public virtual DbSet<VolunteerUser> Users { get; set; }
