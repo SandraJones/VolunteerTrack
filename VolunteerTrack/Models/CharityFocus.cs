@@ -10,6 +10,7 @@ namespace VolunteerTrack.Models
     {
         [Key]
         public string FocusId { get; set; }
+        [Required]
         public string FocusName { get; set; }      
     }
 }

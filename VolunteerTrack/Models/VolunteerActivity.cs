@@ -10,8 +10,12 @@ namespace VolunteerTrack.Models
     {
         [Key]
         public int ActivityId { get; set; }
+        [Required]
         public string OrgName { get; set; }
-        public DateTime Date { get; set; }
+        [Required]
+        public DateTime Date { get; set; } 
+
+        //all three below may be null due to being able to contribute w/o spending hours or mileage, etc.
         public int NumberHours { get; set; }
         public int Mileage { get; set; }
         public int DollarsContributed { get; set; }
