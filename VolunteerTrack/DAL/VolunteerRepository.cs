@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using VolunteerTrack.Models;
 
 namespace VolunteerTrack.DAL
 {
@@ -16,7 +17,18 @@ namespace VolunteerTrack.DAL
         {
             Context = _context;
         }
+        //public List<object> GetActivities()
+        //{
+        //    return Context.Activities.FirstOrDefault().OrgName;
+        //}
         //methods for using data in database
+        public void AddActivity(VolunteerActivity _activity)
+        {
+            Context.Activities.Add(_activity);
+            Context.SaveChanges();  
+        }
+        //for test instan activity and calal repo.addActivity(whatever name instant obj is given)
+        //when I use the method I don't put a type in the argument.
 
         // adding a volunteer activity instance
         //adding mileage
