@@ -23,28 +23,28 @@ namespace VolunteerTrack.DAL
             Context.Activities.Add(_activity);
             Context.SaveChanges();  
         }
-        //for test instan activity and calal repo.addActivity(whatever name instant obj is given)
-        //when I use the method I don't put a type in the argument.
+        public void RemoveActivity(VolunteerActivity _activity)
+        {
+            Context.Activities.Remove(_activity);
+            Context.SaveChanges();
+        }
+        public void EditActivity(VolunteerActivity _activity)
+        {
+           // Context.Activities.???//unsure how to handle this
+        }
 
-
-        //adding mileage
-        //take input from form using angular and enter into table
-        //adding hours
-        //take input from form using angular and enter into table
-        //adding dollar contributions
-        //take input from form using angular and enter into table
-        //need to be able to update mileage, hours, or dollars contributed for a specific date of activity
-        //calculating YTD mileage
-        //calculating YTD hours
-        //calculating YTD monetary contributions
         public void CalculateYTDDollarContributions(VolunteerActivity _dollarsContributed)
         {
-            if (_dollarsContributed != null)
-            {
+            //if (_dollarsContributed != null)
+            //{
+            //    Context.Activities.VolunteerActivity.TotalYTD();
+            //}  may do this in Angular app.js file
 
-                Context.Activities.DollarsContributed.TotalYTD();
-            }
-
+        }
+        public void GetActivity(VolunteerActivity _activity)
+        {
+            Context.Activities.Find(_activity);
+            //plus more 
         }
 
 
