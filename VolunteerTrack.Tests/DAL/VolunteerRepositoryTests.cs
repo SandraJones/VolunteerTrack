@@ -44,7 +44,7 @@ namespace VolunteerTrack.Tests.DAL
              
             ApplicationUser fredj = new ApplicationUser { Email = "fred@example.com", UserName = "fredj", Id = "1234567" };
             ApplicationUser susanm = new ApplicationUser { Email = "susan@example.com", UserName = "susanm", Id = "1234568" };
-
+            //mock users created
             app_users = new List<ApplicationUser>()
             {
                 fredj,
@@ -63,7 +63,7 @@ namespace VolunteerTrack.Tests.DAL
                 }
 
             };
-            //tried activities and  mock_activities
+           //mock activities created to test the methods for adding, etc. to DB
             activities = new List<VolunteerActivity>
             {
                 new VolunteerActivity
