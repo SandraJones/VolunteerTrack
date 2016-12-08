@@ -23,7 +23,7 @@ namespace VolunteerTrack.Tests.DAL
         private List<VolunteerActivity> activities { get; set; }
         private List<CharitableOrganization> orgs { get; set; }
         private List<ApplicationUser> app_users { get; set; }
-        private List<CharityFocus> charity_list_focus { get; set; }
+        private List<CharityFocus> mock_list_focus { get; set; }
        
         [TestMethod]
         public void EnsureICanGetInstanceOfRepo()
@@ -41,10 +41,10 @@ namespace VolunteerTrack.Tests.DAL
             mock_activities = new Mock<DbSet<VolunteerActivity>>();
             mock_app_users = new Mock<DbSet<ApplicationUser>>();
             Repo = new VolunteerRepository(mock_context.Object);
-
-            activities = new List<VolunteerActivity>();
+             
             ApplicationUser fredj = new ApplicationUser { Email = "fred@example.com", UserName = "fredj", Id = "1234567" };
             ApplicationUser susanm = new ApplicationUser { Email = "susan@example.com", UserName = "susanm", Id = "1234568" };
+
             app_users = new List<ApplicationUser>()
             {
                 fredj,
@@ -63,13 +63,36 @@ namespace VolunteerTrack.Tests.DAL
                 }
 
             };
+            //tried activities and  mock_activities
+            activities = new List<VolunteerActivity>
+            {
+                new VolunteerActivity
+                {
+                    ActivityId = 3,
+                    OrgName = "The Nashville Rescue Mission",
+                    Date = DateTime.Now,
+                    NumberHours = 8,
+                    Mileage = 11,
+                    DollarsContributed = 20
+                },
+                new VolunteerActivity
+                {
+                    ActivityId = 5,
+                    OrgName = "Second Harvest",
+                    Date = DateTime.Now,
+                    NumberHours = 2,
+                    Mileage = 3,
+                    DollarsContributed = 25
+                }
+            };
+
 
             /* 
              1. Install Identity into Tweeter.Tests (using statement needed)
              2. Create a mock context that uses 'UserManager' instead of 'TweeterContext'
              */
+
         }
-    }
         public void ConnectToDatastore()
         {
             var query_appUsers = app_users.AsQueryable();
@@ -110,9 +133,9 @@ namespace VolunteerTrack.Tests.DAL
         public void EnsureCanAddActivity()
         {
             //Arrange
-
+            ConnectToDatastore();
             //Act
-
+            
             //Assert
 
         }
