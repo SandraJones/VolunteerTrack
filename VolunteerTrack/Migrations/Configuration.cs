@@ -30,72 +30,72 @@ namespace VolunteerTrack.Migrations
         //    public class CharitableORganizations
         //    {       
         //        OrgName: Boys&GirlsClub,
-        //        FocusName: Children,
+        //        FocusName: Children,   36.166,-86.802 and -36.158,-86.799
         //        Location: url{'https://google.com/api/etcetc.??????????'}  another question, can you seed part of a DB table and seed the other part later?
         //    },
         //    {
         //        OrgName: BoyScoutsOfAmerica,
-        //        FocusName: Children,
+        //        FocusName: Children,  36.114,-86.812
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: GirlScouts,
-        //        FocusName: Children,
+        //        FocusName: Children,   36.090,-86.804
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: SafeHaven,
-        //        FocusName: Women&Children,
+        //        FocusName: Women&Children,   36.147,-86.766
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: FriendsOfLongHunterStatePark,
-        //        FocusName: Environment,
+        //        FocusName: Environment,  36.094,-86.560
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
-        //        OrgName: RoomAtTheInn,
-        //        FocusName: Homelessness,
+        //        OrgName: RoomInTheInn,
+        //        FocusName: Homelessness,   36.152,-86.781
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
-        //        OrgName: MagdaleneHouse,
-        //        FocusName: Women,
+        //        OrgName: Thistle Farms,
+        //        FocusName: Women,   36.152,-86.851
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: NashvilleRescueMission,
-        //        FocusName: Homelessness,
+        //        FocusName: Homelessness,  36.154,-86.848
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: HandsOnNashville,
-        //        FocusName: Environment,
+        //        FocusName: Community,   36.158,-86.769
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
-        //        OrgName: MercyMinistries,
-        //        FocusName: Women,
+        //        OrgName: The Branch Food Pantry,
+        //        FocusName: Hunger,  36.059,-86.672
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
-        //        OrgName: Boys&GirlsClub,
-        //        FocusName: Children,
+        //        OrgName: Nashville Zoo at Grassmere,
+        //        FocusName: Animals,  36.090,-86.736
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
-        //        OrgName: OasisCenter,
-        //        FocusName: Children,
+        //        OrgName: Alive Hospice,
+        //        FocusName: Elderly,  36.158,-86.801
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: RedCross,
-        //        FocusName: Emergency,
+        //        FocusName: Emergency,  36.156,-86.810
         //        Location: url{'https://google.com/api/etcetc.'}
         //    },
         //    {
         //        OrgName: SecondHarvestFoodBank,
-        //        FocusName: Hunger,
+        //        FocusName: Hunger,  36.199,-86.797
         //        Location: url{'https://google.com/api/etcetc.'}
         //    }
     }

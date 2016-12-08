@@ -10,6 +10,8 @@ namespace VolunteerTrack.Models
     {
         [Key]
         public int VolunteerUserId { get; set; } 
+
+        //given by Entity and used for login and registration; repre notion of a user
         public ApplicationUser BaseUser {get; set;}
    
     }
