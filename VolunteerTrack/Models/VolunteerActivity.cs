@@ -14,7 +14,6 @@ namespace VolunteerTrack.Models
         public string OrgName { get; set; }
         [Required]
         public DateTime Date { get; set; } 
-
         //all three below may be null due to being able to contribute w/o spending hours or mileage, etc.
         public int NumberHours { get; set; }
         public int Mileage { get; set; }

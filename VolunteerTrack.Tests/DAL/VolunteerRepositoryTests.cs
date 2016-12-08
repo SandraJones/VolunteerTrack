@@ -19,13 +19,11 @@ namespace VolunteerTrack.Tests.DAL
         private Mock<CharityFocus> mock_focus { get; set; }
         private VolunteerRepository Repo { get; set; }
 
-       // private List<VolunteerUser> mock_users { get; set; }
+        private List<VolunteerUser> vol_list_users { get; set; }
         private List<VolunteerActivity> activities { get; set; }
         private List<CharitableOrganization> orgs { get; set; }
         private List<ApplicationUser> app_users { get; set; }
-        private List<CharityFocus> mock_list_focus { get; set; }
-            
-
+        private List<CharityFocus> charity_list_focus { get; set; }
        
         [TestMethod]
         public void EnsureICanGetInstanceOfRepo()
@@ -38,30 +36,57 @@ namespace VolunteerTrack.Tests.DAL
         [TestInitialize]
         public void Initialize()
         {
-            //Arrange
-            
-            //Act
+            mock_context = new Mock<VolunteerContext>();
+            mock_users = new Mock<DbSet<VolunteerUser>>();
+            mock_activities = new Mock<DbSet<VolunteerActivity>>();
+            mock_app_users = new Mock<DbSet<ApplicationUser>>();
+            Repo = new VolunteerRepository(mock_context.Object);
 
-            //Assert
+            activities = new List<VolunteerActivity>();
+            ApplicationUser fredj = new ApplicationUser { Email = "fred@example.com", UserName = "fredj", Id = "1234567" };
+            ApplicationUser susanm = new ApplicationUser { Email = "susan@example.com", UserName = "susanm", Id = "1234568" };
+            app_users = new List<ApplicationUser>()
+            {
+                fredj,
+                susanm
+            };
 
+            vol_list_users = new List<VolunteerUser>
+            {
+                new VolunteerUser {
+                    VolunteerUserId = 1,
+                    BaseUser = fredj
+                },
+                new VolunteerUser {
+                    VolunteerUserId = 2,
+                    BaseUser = susanm
+                }
+
+            };
+
+            /* 
+             1. Install Identity into Tweeter.Tests (using statement needed)
+             2. Create a mock context that uses 'UserManager' instead of 'TweeterContext'
+             */
         }
+    }
         public void ConnectToDatastore()
         {
-            var query_volusers = app_users.AsQueryable();
+            var query_appUsers = app_users.AsQueryable();
             var query_activities = activities.AsQueryable();
             var query_focus = mock_list_focus.AsQueryable();
-            var query_Applusers = mock_app_users.AsQueryable(); 
+           // var query_Appusers = mock_app_users.AsQueryable(); 
 
-            mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.Provider).Returns(query_volusers.Provider);
-            mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.Expression).Returns(query_volusers.Expression);
-            mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.ElementType).Returns(query_volusers.ElementType);
+            mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.Provider).Returns(query_activities.Provider);
+            mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.Expression).Returns(query_activities.Expression);
+            mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.ElementType).Returns(query_activities.ElementType);
             //GetEnumerator iterates thru collection reading; cannot change the underlying collection.
             mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.GetEnumerator()).Returns(() => query_activities.GetEnumerator());
 
-            mock_context.Setup(c => c.Activities).Returns(mock_activities.Object);
-            mock_app_users.Setup(u => u.Add(It.IsAny<ApplicationUser>())).Callback((ApplicationUser t) => query_volusers.Add(t));
+            mock_context.Setup(a => a.Activities).Returns(mock_activities.Object);
+            //mock_app_users.Setup(u => u.Add(It.IsAny<ApplicationUser>())).Callback((ApplicationUser t) => query_volusers.Add(t));
 
-            //mock_users.Setup( f => f.).Returns(mock_follow_users.Object); // Some list to contain fake users
+            //mock_users.Setup( f => f.).Returns(mock_app_users.Object); // Some list to contain fake users
 
             /*
              * Below mocks the 'Users' getter that returns a list of ApplicationUsers
@@ -69,12 +94,63 @@ namespace VolunteerTrack.Tests.DAL
              *
              *below section may need to change the section afer Returns due to query_volusers; unsure about this part 
              */
-            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Provider).Returns(query_volusers.Provider);
-            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Expression).Returns(query_volusers.Expression);
-            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.ElementType).Returns(query_volusers.ElementType);
-            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_volusers.GetEnumerator());
-            mock_context.Setup(c => c.Users).Returns(mock_users.Object);  
-         }
+            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Provider).Returns(query_volusers.Provider);
+            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Expression).Returns(query_volusers.Expression);
+            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.ElementType).Returns(query_volusers.ElementType);
+            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_volusers.GetEnumerator());
+            //mock_context.Setup(c => c.Users).Returns(mock_users.Object);
+
+            //need to mock all models 
+            //mock focus
+            //mock organizations
+        }
+
+        //do this feature all the way thru, test, method, and angular then go on to next
+        [TestMethod]
+        public void EnsureCanAddActivity()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+
+        }
+        [TestMethod]
+        public void EnsureCannotAddDuplicateActivity()
+        {
+
+        }
+        [TestMethod]
+        public void EnsureCanGetActivity()
+        {
+
+        }
+        //in case of incomplete information or for whatever reason user wants to delete an activity
+        [TestMethod]
+        public void EnsureCanRemoveActivity()
+        {
+
+        }
+        //Edit activity to add in mileage, hours, dollars
+        [TestMethod]
+        public void EnsureCanEditActivity()
+        {
+
+        }
+        //If charity adds/removes an area of focus.
+        [TestMethod]
+        public void EnsureCanEditFocus()
+        {
+
+        }
+        //If charity changes name.
+        [TestMethod]
+        public void EnsureCanEditOrganization()
+        {
+
+        }
+
 
     }
 }

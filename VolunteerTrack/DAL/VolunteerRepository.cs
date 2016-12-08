@@ -20,6 +20,7 @@ namespace VolunteerTrack.DAL
         
         public void AddActivity(VolunteerActivity _activity)
         {
+            //will have to add in a check for existing activity for that date??
             Context.Activities.Add(_activity);
             Context.SaveChanges();  
         }
@@ -32,22 +33,20 @@ namespace VolunteerTrack.DAL
         {
            // Context.Activities.???//unsure how to handle this
         }
-
+        //may handle calulations in front-end
         public void CalculateYTDDollarContributions(VolunteerActivity _dollarsContributed)
         {
             //if (_dollarsContributed != null)
             //{
             //    Context.Activities.VolunteerActivity.TotalYTD();
             //}  may do this in Angular app.js file
-
         }
+        //GetActivity method is for editing or deleting of an activity. Have to use the activityID for this possibly.
         public void GetActivity(VolunteerActivity _activity)
         {
             Context.Activities.Find(_activity);
-            //plus more 
+            
         }
-
-
-
+        
     }
 }
