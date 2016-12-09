@@ -14,5 +14,6 @@ namespace VolunteerTrack.Models
         [Required]
         public string OrgName { get; set;}
         public List<string> Focus { get; set; }
+        public UrlAttribute Location { get; set; }
     }
 }

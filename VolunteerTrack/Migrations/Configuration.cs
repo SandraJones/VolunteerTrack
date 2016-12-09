@@ -1,9 +1,14 @@
 namespace VolunteerTrack.Migrations
 {
+    using CsvHelper;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
+    using System.Text;
 
     internal sealed class Configuration : DbMigrationsConfiguration<VolunteerTrack.Models.ApplicationDbContext>
     {
@@ -14,6 +19,18 @@ namespace VolunteerTrack.Migrations
 
         protected override void Seed(VolunteerTrack.Models.ApplicationDbContext context)
         {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "SeedingDataFromCSV.Domain.SeedData.CharitableOrganizations.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader);
+                    csvReader.Configuration.WillThrowOnMissingField = false;
+                    var orgs = csvReader.GetRecords<CharitableOrganization>().ToArray();
+                    context.CharitableOrganizations.AddOrUpdate(c => c.Code, CharitableOrganizations);
+                }
+            }
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

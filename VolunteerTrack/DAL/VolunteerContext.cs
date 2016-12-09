@@ -7,7 +7,7 @@ using VolunteerTrack.Models;
 
 namespace VolunteerTrack.DAL
 {
-    public class VolunteerContext : DbContext
+    public class VolunteerContext : ApplicationDbContext
     {
         // 'virtual' is for Moq during testing
         public virtual DbSet<VolunteerUser> Users { get; set; }

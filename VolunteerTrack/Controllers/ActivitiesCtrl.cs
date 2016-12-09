@@ -15,7 +15,7 @@ namespace VolunteerTrack.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<controller>/5
+        // GET api/<controller
         public string Get(int id)
         {
             return "value";
