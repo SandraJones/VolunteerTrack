@@ -151,20 +151,28 @@ namespace VolunteerTrack.Tests.DAL
             //Assert
             Assert.AreEqual(expected_activities, actual_activities);
         }
-        [TestMethod]
-        public void EnsureCannotAddDuplicateActivity()
-        {
-
-        }
-        [TestMethod]
-        public void EnsureCanGetActivity()
-        {
-
-        }
+        
         //in case of incomplete information or for whatever reason user wants to delete an activity
         [TestMethod]
         public void EnsureCanRemoveActivity()
         {
+            //Arrange
+            ConnectToDatastore();
+            //Act
+            VolunteerActivity a_activity = new VolunteerActivity
+            {
+                ActivityId = 1,
+                OrgName = "American Red Cross",
+                NumberHours = 4,
+                Mileage = 14,
+                DollarsContributed = 100
+            };
+            Repo.RemoveActivity(a_activity);
+            int expected_activities = 1;
+            int actual_activities = Repo.Context.Activities.Count();
+            //Assert
+            Assert.AreEqual(expected_activities, actual_activities);
+            //Assert
 
         }
         //Edit activity to add in mileage, hours, dollars
@@ -185,7 +193,16 @@ namespace VolunteerTrack.Tests.DAL
         {
 
         }
+        [TestMethod]
+        public void EnsureCannotAddDuplicateActivity()
+        {
 
+        }
+        [TestMethod]
+        public void EnsureCanGetActivity()
+        {
+
+        }
 
     }
 }

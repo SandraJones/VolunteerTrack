@@ -1,3 +1,3 @@
 ﻿var app = angular.module("Tracker", []);
 
-//app.controller()
+//app.controller("ActivitiesCtrl")
