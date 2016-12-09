@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using VolunteerTrack.DAL;
 using System.Linq;
 using System.Data.Entity;
+using System.EnterpriseServices;
 
 namespace VolunteerTrack.Tests.DAL
 {
@@ -97,7 +98,7 @@ namespace VolunteerTrack.Tests.DAL
         {
             var query_appUsers = app_users.AsQueryable();
             var query_activities = activities.AsQueryable();
-            var query_focus = mock_list_focus.AsQueryable();
+           // var query_focus = mock_list_focus.AsQueryable();
            // var query_Appusers = mock_app_users.AsQueryable(); 
 
             mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.Provider).Returns(query_activities.Provider);
@@ -135,9 +136,20 @@ namespace VolunteerTrack.Tests.DAL
             //Arrange
             ConnectToDatastore();
             //Act
-            
+            VolunteerActivity a_activity = new VolunteerActivity
+            {
+                ActivityId = 1,
+                OrgName = "American Red Cross",
+                NumberHours = 4,
+                Mileage = 14,
+                DollarsContributed = 100
+            };
+            int actual_activities = 0;
+            Repo.AddActivity(a_activity);
+            int expected_activities = 2;
+            actual_activities = Repo.Context.Activities.Count();
             //Assert
-
+            Assert.AreEqual(expected_activities, actual_activities);
         }
         [TestMethod]
         public void EnsureCannotAddDuplicateActivity()
