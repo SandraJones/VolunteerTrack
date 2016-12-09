@@ -144,10 +144,10 @@ namespace VolunteerTrack.Tests.DAL
                 Mileage = 14,
                 DollarsContributed = 100
             };
-            int actual_activities = 0;
+            //int actual_activities = 0;
             Repo.AddActivity(a_activity);
             int expected_activities = 2;
-            actual_activities = Repo.Context.Activities.Count();
+            int actual_activities = Repo.Context.Activities.Count();
             //Assert
             Assert.AreEqual(expected_activities, actual_activities);
         }
