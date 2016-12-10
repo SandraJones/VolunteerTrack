@@ -1,6 +1,8 @@
 namespace VolunteerTrack.Migrations
 {
     using CsvHelper;
+    using DAL;
+    using Microsoft.Ajax.Utilities;
     using Models;
     using System;
     using System.Data.Entity;
@@ -28,7 +30,7 @@ namespace VolunteerTrack.Migrations
                     CsvReader csvReader = new CsvReader(reader);
                     csvReader.Configuration.WillThrowOnMissingField = false;
                     var orgs = csvReader.GetRecords<CharitableOrganization>().ToArray();
-                    context.CharitableOrganizations.AddOrUpdate(c => c.Code, CharitableOrganizations);
+                    Context.CharitableOrganizations.AddOrUpdate(c => c.Code, CharitableOrganizations);
                 }
             }
             //  This method will be called after migrating to the latest version.
