@@ -8,6 +8,37 @@ namespace VolunteerTrack.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.VolunteerActivities",
+                c => new
+                    {
+                        ActivityId = c.Int(nullable: false, identity: true),
+                        OrgName = c.String(nullable: false),
+                        Date = c.DateTime(nullable: false),
+                        NumberHours = c.Int(nullable: false),
+                        Mileage = c.Int(nullable: false),
+                        DollarsContributed = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ActivityId);
+            
+            CreateTable(
+                "dbo.CharitableOrganizations",
+                c => new
+                    {
+                        OrgId = c.Int(nullable: false, identity: true),
+                        OrgName = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.OrgId);
+            
+            CreateTable(
+                "dbo.CharityFocus",
+                c => new
+                    {
+                        FocusId = c.String(nullable: false, maxLength: 128),
+                        FocusName = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.FocusId);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -75,25 +106,42 @@ namespace VolunteerTrack.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.VolunteerUsers",
+                c => new
+                    {
+                        VolunteerUserId = c.Int(nullable: false, identity: true),
+                        BaseUser_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.VolunteerUserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.BaseUser_Id)
+                .Index(t => t.BaseUser_Id);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.VolunteerUsers", "BaseUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropIndex("dbo.VolunteerUsers", new[] { "BaseUser_Id" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropTable("dbo.VolunteerUsers");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.CharityFocus");
+            DropTable("dbo.CharitableOrganizations");
+            DropTable("dbo.VolunteerActivities");
         }
     }
 }

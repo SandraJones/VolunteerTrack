@@ -4,11 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using VolunteerTrack.DAL;
+using VolunteerTrack.Models;
 
 namespace VolunteerTrack.Controllers
 {
-    public class ActivitiesCtrl : ApiController
+    public class ActivitiesController : ApiController
     {
+        VolunteerRepository repo = new VolunteerRepository();
+
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
@@ -22,8 +26,16 @@ namespace VolunteerTrack.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post(VolunteerActivity activity)
         {
+            VolunteerActivity _activity = new VolunteerActivity();
+            int i = 0;
+            //_activity.OrgName = activity.OrgName;
+            //_activity.Date = activity.Date;
+            //_activity.NumberHours = activity.NumberHours;
+            //_activity.Mileage = activity.Mileage;
+            //_activity.DollarsContributed = activity.DollarsContributed;               
+            repo.AddActivity(activity);
         }
 
         // PUT api/<controller>/5

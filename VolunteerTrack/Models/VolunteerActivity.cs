@@ -20,4 +20,15 @@ namespace VolunteerTrack.Models
         public int DollarsContributed { get; set; }
        
     }
+    public class VolunteerActivityViewModel
+    {
+        [Required]
+        public string OrgName { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
+        //all three below may be null due to being able to contribute w/o spending hours or mileage, etc.
+        public int NumberHours { get; set; }
+        public int Mileage { get; set; }
+        public int DollarsContributed { get; set; }
+    }
 }

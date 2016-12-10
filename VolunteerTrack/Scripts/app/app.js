@@ -1,20 +1,18 @@
 ﻿var app = angular.module("Tracker", []);
 
-app.controller("ActivitiesCtrl")
-
-
 app.controller('ActivitiesCtrl', function ($scope, $http) {
-    $scope.getActivities = function () {
+    $scope.saveActivity = function () {
         $http({
-            url: '/api/VolunteerActivity/',
-            method: "GET"
+            url: '/api/Activities/',
+            method: "POST",
+            data: $scope.Activity
         })
         .then(function (result) {
-            $scope.VolunteerActivity = angular.copy(result.data);
+         //  $scope.Activity = angular.copy(result.data);
 
         }, function (error) {
             console.log(error);
         });
+       // AddActivity();
     }
-    getActivities();
 });
