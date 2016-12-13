@@ -109,7 +109,7 @@ namespace VolunteerTrack.Tests.DAL
 
             mock_context.Setup(a => a.Activities).Returns(mock_activities.Object);
             mock_activities.Setup(u => u.Add(It.IsAny<VolunteerActivity>())).Callback((VolunteerActivity t) => activities.Add(t));
-
+            mock_activities.Setup(r => r.Remove(It.IsAny<VolunteerActivity>())).Callback((VolunteerActivity t) => activities.Remove(t));
             //mock_users.Setup( f => f.).Returns(mock_app_users.Object); // Some list to contain fake users
 
             /*
@@ -158,18 +158,19 @@ namespace VolunteerTrack.Tests.DAL
         {
             //Arrange
             ConnectToDatastore();
-           // int firstCount = Repo.Context.Activities.Count();
+           
             //Act
-            VolunteerActivity a_activity = new VolunteerActivity();
-            //{
-            //    ActivityId = 1,
-            //    OrgName = "AmericanRedCross",
-            //    NumberHours = 4,
-            //    Mileage = 14,
-            //    DollarsContributed = 100
-            //};
+            VolunteerActivity a_activity = new VolunteerActivity
+            {
+                ActivityId = 1,
+                OrgName = "American Red Cross",
+                NumberHours = 4,
+                Mileage = 14,
+                DollarsContributed = 100
+            };
+            Repo.AddActivity(a_activity);
             Repo.RemoveActivity(a_activity);
-            int expected_activities = 1;
+            int expected_activities = 2;
             int actual_activities = Repo.Context.Activities.Count();
             //Assert
             Assert.AreEqual(expected_activities, actual_activities);
