@@ -108,7 +108,7 @@ namespace VolunteerTrack.Tests.DAL
             mock_activities.As<IQueryable<VolunteerActivity>>().Setup(m => m.GetEnumerator()).Returns(() => query_activities.GetEnumerator());
 
             mock_context.Setup(a => a.Activities).Returns(mock_activities.Object);
-            //mock_app_users.Setup(u => u.Add(It.IsAny<ApplicationUser>())).Callback((ApplicationUser t) => query_volusers.Add(t));
+            mock_activities.Setup(u => u.Add(It.IsAny<VolunteerActivity>())).Callback((VolunteerActivity t) => activities.Add(t));
 
             //mock_users.Setup( f => f.).Returns(mock_app_users.Object); // Some list to contain fake users
 

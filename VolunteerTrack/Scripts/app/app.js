@@ -8,9 +8,11 @@ app.controller('ActivitiesCtrl', function ($scope, $http) {
             data: $scope.Activity
         })
         .then(function (result) {
+            //call toast msg
             //  $scope.Activity = angular.copy(result.data);
             $scope.Activity =  {};
         }, function (error) {
+            //poss call an error toast msg
             console.log(error);
         });
     }
