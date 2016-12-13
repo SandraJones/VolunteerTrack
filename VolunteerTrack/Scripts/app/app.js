@@ -20,7 +20,11 @@ app.controller('ActivitiesCtrl', function ($scope, $http) {
         $http({
             url: 'api/Activities/',
             method: "GET",
-            data: 
+            data: $scope.editActivity
         })
+        .then(function (result) {
+        }, function (error) {
+            console.log(error);
+        });
     }
 });

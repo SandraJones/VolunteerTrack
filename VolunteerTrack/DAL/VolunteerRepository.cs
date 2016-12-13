@@ -55,7 +55,7 @@ namespace VolunteerTrack.DAL
         }
         public List<VolunteerActivity> GetAllActivitiesForCurrentUser(string UserName)
         {
-            return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();//this gets all for all users will have to limit at some point to current user
+            return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
             //this goes thru each activity and checks the username within the baseuser within the volunteeruser table and checks for a match, and adds to list if matched.
         }
     }

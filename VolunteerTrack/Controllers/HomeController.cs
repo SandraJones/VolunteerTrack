@@ -20,6 +20,11 @@ namespace VolunteerTrack.Controllers
             return View();
         }
 
+        public ActionResult MyActivities()
+        {
+            ViewBag.Message = "Your Activities";
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
