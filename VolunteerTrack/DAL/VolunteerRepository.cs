@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,12 +43,22 @@ namespace VolunteerTrack.DAL
             //}  may do this in Angular app.js file
         }
         //GetActivity method is for editing or deleting of an activity. Have to use the activityID for this possibly.
-        public void GetActivity(VolunteerActivity _activity)
+        public VolunteerActivity GetActivityById(int Id)
         {
-            Context.Activities.Find(_activity);
-            
+           return Context.Activities.Find(Id);     
         }
-
-        
+        //get all by user
+        //return whole list until I get users implemented User Manager applicationuser
+        public List<VolunteerActivity> GetAllActivitiesForAllUsers()
+        {
+            return Context.Activities.ToList();//this gets all for all users will have to limit at some point to current user
+        }
+        public List<VolunteerActivity> GetAllActivitiesForCurrentUser(string UserName)
+        {
+            return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();//this gets all for all users will have to limit at some point to current user
+            //this goes thru each activity and checks the username within the baseuser within the volunteeruser table and checks for a match, and adds to list if matched.
+        }
     }
 }
+
+//make sure I'm saving user with rest of the object

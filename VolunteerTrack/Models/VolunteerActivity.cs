@@ -18,6 +18,7 @@ namespace VolunteerTrack.Models
         public int NumberHours { get; set; }
         public int Mileage { get; set; }
         public int DollarsContributed { get; set; }
+        public virtual VolunteerUser VolunteerUser { get; set; }
        
     }
     public class VolunteerActivityViewModel

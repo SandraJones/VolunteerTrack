@@ -22,13 +22,20 @@
                 </p>
                 <p>
                     <label>DollarsContributed</label>
-                    <input type="text" ng-model ="Activity.DollarsContributed" class="field" required pattern="[a-zA-Z0-9]+" />
+                    <input type="text" ng-model="Activity.DollarsContributed" class="field" required pattern="[a-zA-Z0-9]+" />
                 </p>
                 <p>
                     <label>Date</label>
-                    <input type= "datetime-local" ng-model="Activity.Date" class="field" required />
+                    <input type="datetime-local" ng-model="Activity.Date" class="field" required />
                 </p>
                 <button type="submit" ng-click="saveActivity()">SUBMIT</button>
+                <br />
+                <br />
+                <p>
+                    <label>Search For Activity By OrgName</label>
+                    <input type="search" ng-model="Activity.OrgName" class="field" required />
+                    <button type="submit" ng-click="editActivity()">EDIT or REMOVE Activity</button>
+                </p>
 
                 <p><label>Total hours volunteered this year:</label></p>
 
