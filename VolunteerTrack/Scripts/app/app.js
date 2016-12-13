@@ -8,11 +8,10 @@ app.controller('ActivitiesCtrl', function ($scope, $http) {
             data: $scope.Activity
         })
         .then(function (result) {
-         //  $scope.Activity = angular.copy(result.data);
-
+            //  $scope.Activity = angular.copy(result.data);
+            $scope.Activity =  {};
         }, function (error) {
             console.log(error);
         });
-       // AddActivity();
     }
 });

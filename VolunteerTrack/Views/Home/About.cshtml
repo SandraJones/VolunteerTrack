@@ -6,7 +6,7 @@
 
 <div ng-app ="Tracker" >
     <div class="options" ng-controller="ActivitiesCtrl">
-        <form ng-submit="saveActivity()">
+        <form ng-submit="saveActivity()" name="form.InputActivity">
             <fieldset>
                 <p>
                     <label>Name of Organization Where You Volunteered</label>
@@ -28,7 +28,8 @@
                     <label>Date</label>
                     <input type= "datetime-local" ng-model="Activity.Date" class="field" required />
                 </p>
-                <button type="submit">SUBMIT</button>
+                <button type="submit" ng-click="saveActivity()">SUBMIT</button>
+
                 <p><label>Total hours volunteered this year:</label></p>
 
                 <p><label>Total mileage for the year:</label></p>

@@ -146,7 +146,7 @@ namespace VolunteerTrack.Tests.DAL
             };
             //int actual_activities = 0;
             Repo.AddActivity(a_activity);
-            int expected_activities = 2;
+            int expected_activities = 3;
             int actual_activities = Repo.Context.Activities.Count();
             //Assert
             Assert.AreEqual(expected_activities, actual_activities);
@@ -158,15 +158,16 @@ namespace VolunteerTrack.Tests.DAL
         {
             //Arrange
             ConnectToDatastore();
+           // int firstCount = Repo.Context.Activities.Count();
             //Act
-            VolunteerActivity a_activity = new VolunteerActivity
-            {
-                ActivityId = 1,
-                OrgName = "American Red Cross",
-                NumberHours = 4,
-                Mileage = 14,
-                DollarsContributed = 100
-            };
+            VolunteerActivity a_activity = new VolunteerActivity();
+            //{
+            //    ActivityId = 1,
+            //    OrgName = "AmericanRedCross",
+            //    NumberHours = 4,
+            //    Mileage = 14,
+            //    DollarsContributed = 100
+            //};
             Repo.RemoveActivity(a_activity);
             int expected_activities = 1;
             int actual_activities = Repo.Context.Activities.Count();

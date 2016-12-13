@@ -30,14 +30,8 @@ namespace VolunteerTrack.Controllers
         {
             VolunteerActivity _activity = new VolunteerActivity();
             int i = 0;
-            //_activity.OrgName = activity.OrgName;
-            //_activity.Date = activity.Date;
-            //_activity.NumberHours = activity.NumberHours;
-            //_activity.Mileage = activity.Mileage;
-            //_activity.DollarsContributed = activity.DollarsContributed;               
             repo.AddActivity(activity);
         }
-
         // PUT api/<controller>/5
         public void Put(int id, [FromBody]string value)
         {
