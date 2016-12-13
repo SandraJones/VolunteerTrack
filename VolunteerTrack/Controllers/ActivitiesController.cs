@@ -23,7 +23,7 @@ namespace VolunteerTrack.Controllers
             
         }
 
-        // GET api/<controller
+        // GET api/<controller>
         public VolunteerActivity Get(int id)
         {
             return repo.GetActivityById(id);
