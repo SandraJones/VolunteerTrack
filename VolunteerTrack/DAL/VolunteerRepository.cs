@@ -32,15 +32,14 @@ namespace VolunteerTrack.DAL
         }
         public void EditActivity(VolunteerActivity _activity)
         {
-           // Context.Activities.???//unsure how to handle this
+           //_activity.ActivityId.CompareTo
         }
         //may handle calulations in front-end
-        public void CalculateYTDDollarContributions(VolunteerActivity _dollarsContributed)
+        public void CalculateYTDDollarContributions(VolunteerActivity UserName)
         {
-            //if (_dollarsContributed != null)
-            //{
-            //    Context.Activities.VolunteerActivity.TotalYTD();
-            //}  may do this in Angular app.js file
+            var currentUser = UserName;
+           // Context.Activities.DollarsContributed.TotalYTD();
+            //may do this in Angular app.js file
         }
         //GetActivity method is for editing or deleting of an activity. Have to use the activityID for this possibly.
         public VolunteerActivity GetActivityById(int Id)

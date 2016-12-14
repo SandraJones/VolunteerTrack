@@ -4,16 +4,18 @@
 <h2>@ViewData["Title"].</h2>
 
 <div ng-controller="EditController">
-    <div ng-repeat="editActivity">
-        <article>
-            <p>
-                lalalalal
-            </p>
-            <p>
-
-            </p>
-        </article>
+    <div>
+        <ul ng-repeat="activity in activities">
+            <li>{{activity.ActivityId}}</li>
+            <li>{{activity.VolunteerUser}}</li>
+            <li>{{activity.OrgName}}</li>
+            <li>{{activity.Date}}</li>
+            <li>{{activity.NumberHours}}</li>
+            <li>{{activity.Mileage}}</li>
+            <li>{{activity.DollarsContributed}}</li>
+        </ul>
     </div>
+</div>
 
 
 
