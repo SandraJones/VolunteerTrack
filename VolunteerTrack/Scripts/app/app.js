@@ -1,6 +1,6 @@
 ﻿var app = angular.module("Tracker", []);
 
-app.controller('ActivitiesCtrl', function ($scope, $http) {
+app.controller('ActivitiesController', function ($scope, $http) {
     $scope.saveActivity = function () {
         $http({
             url: '/api/Activities/',

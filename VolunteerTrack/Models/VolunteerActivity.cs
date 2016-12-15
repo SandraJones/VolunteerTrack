@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace VolunteerTrack.Models
         public int NumberHours { get; set; }
         public int Mileage { get; set; }
         public int DollarsContributed { get; set; }
+        [JsonIgnoreAttribute]
         public virtual VolunteerUser VolunteerUser { get; set; }
        
     }

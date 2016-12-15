@@ -18,9 +18,7 @@ namespace VolunteerTrack.Controllers
         {
             var currentUser = User.Identity.Name;
             //need this for list of acti for speci users
-            //
-           return repo.GetAllActivitiesForCurrentUser(currentUser);
-            
+           return repo.GetAllActivitiesForCurrentUser(currentUser);         
         }
 
         // GET api/<controller>
@@ -32,8 +30,8 @@ namespace VolunteerTrack.Controllers
         // POST api/<controller>
         public void Post(VolunteerActivity activity)
         {
-            var currentUser = User.Identity.Name;
-            int i = 0;
+            var currentUser = repo.GetUserByUserName(User.Identity.Name);
+            activity.VolunteerUser = currentUser;
             repo.AddActivity(activity);
         }
         // PUT api/<controller>/5

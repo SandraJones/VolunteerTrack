@@ -57,6 +57,14 @@ namespace VolunteerTrack.DAL
             return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
             //this goes thru each activity and checks the username within the baseuser within the volunteeruser table and checks for a match, and adds to list if matched.
         }
+        public VolunteerUser GetUserByUserName(string UserName)
+        {
+            var onlyUser = Context.Users.FirstOrDefault();
+            var onlyApplicationUser = Context.VolunteerUsers.FirstOrDefault();
+            onlyApplicationUser.BaseUser = onlyUser;
+            Context.SaveChanges();
+            return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
+        }
     }
 }
 

@@ -29,7 +29,8 @@ namespace VolunteerTrack
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                                      "~/Scripts/angular.js",
-                                     "~/Scripts/app/app.js"));
+                                     "~/Scripts/app/app.js",
+                                     "~/Scripts/app/*.js"));
         }
     }
 }
