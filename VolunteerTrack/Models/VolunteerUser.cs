@@ -13,6 +13,6 @@ namespace VolunteerTrack.Models
 
         //given by Entity and used for login and registration; repre notion of a user
         public ApplicationUser BaseUser {get; set;}
-   
+        public virtual List<VolunteerActivity> Activities { get; set; }
     }
 } 

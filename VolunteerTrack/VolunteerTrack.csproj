@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201612050236199_AddedModels.Designer.cs">
       <DependentUpon>201612050236199_AddedModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612130204113_AddingUsersToActivities.cs" />
+    <Compile Include="Migrations\201612130204113_AddingUsersToActivities.Designer.cs">
+      <DependentUpon>201612130204113_AddingUsersToActivities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CharitableOrganization.cs" />
@@ -224,6 +228,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\EditController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -288,6 +293,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612050236199_AddedModels.resx">
       <DependentUpon>201612050236199_AddedModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612130204113_AddingUsersToActivities.resx">
+      <DependentUpon>201612130204113_AddingUsersToActivities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,6 +1,6 @@
 ﻿var app = angular.module("Tracker", []);
 
-app.controller('ActivitiesCtrl', function ($scope, $http) {
+app.controller('ActivitiesController', function ($scope, $http) {
     $scope.saveActivity = function () {
         $http({
             url: '/api/Activities/',
@@ -16,4 +16,15 @@ app.controller('ActivitiesCtrl', function ($scope, $http) {
             console.log(error);
         });
     }
+    //$scope.editActivity = function () {
+    //    $http({
+    //        url: 'api/Activities/',
+    //        method: "GET",
+    //        data: $scope.editActivity
+    //    })
+    //    .then(function (result) {
+    //    }, function (error) {
+    //        console.log(error);
+    //    });
+    //}
 });

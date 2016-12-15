@@ -14,22 +14,24 @@ namespace VolunteerTrack.Controllers
         VolunteerRepository repo = new VolunteerRepository();
 
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public List<VolunteerActivity> Get()
         {
-            return new string[] { "value1", "value2" };
+            var currentUser = User.Identity.Name;
+            //need this for list of acti for speci users
+           return repo.GetAllActivitiesForCurrentUser(currentUser);         
         }
 
-        // GET api/<controller
-        public string Get(int id)
+        // GET api/<controller>
+        public VolunteerActivity Get(int id)
         {
-            return "value";
+            return repo.GetActivityById(id);
         }
 
         // POST api/<controller>
         public void Post(VolunteerActivity activity)
         {
-            VolunteerActivity _activity = new VolunteerActivity();
-            int i = 0;
+            var currentUser = repo.GetUserByUserName(User.Identity.Name);
+            activity.VolunteerUser = currentUser;
             repo.AddActivity(activity);
         }
         // PUT api/<controller>/5

@@ -1,12 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "App Contact Information";
+    ViewData["Title"] = "My Activities";
 }
+<h2>@ViewData["Title"].</h2>
 
-
-<div class = "contactPage">
-    <h5 class= "ContactInfoLine">Webmaster: sandynashv@gmail.com></h5>
+<div>
+    <div ng-controller="EditController" >
+        <ul ng-repeat="activity in activities">
+            <li>{{activity.ActivityId}}</li>
+            <li>{{activity.VolunteerUser}}</li>
+            <li>{{activity.OrgName}}</li>
+            <li>{{activity.Date}}</li>
+            <li>{{activity.NumberHours}}</li>
+            <li>{{activity.Mileage}}</li>
+            <li>{{activity.DollarsContributed}}</li>
+        </ul>
+    </div>
 </div>
-
 
 
 

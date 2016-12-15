@@ -109,8 +109,8 @@ namespace VolunteerTrack.Tests.DAL
 
             mock_context.Setup(a => a.Activities).Returns(mock_activities.Object);
             mock_activities.Setup(u => u.Add(It.IsAny<VolunteerActivity>())).Callback((VolunteerActivity t) => activities.Add(t));
-
-            //mock_users.Setup( f => f.).Returns(mock_app_users.Object); // Some list to contain fake users
+            mock_activities.Setup(r => r.Remove(It.IsAny<VolunteerActivity>())).Callback((VolunteerActivity t) => activities.Remove(t));
+           // mock_users.Setup( f => f.User).Returns(mock_users.Name); // Some list to contain fake users
 
             /*
              * Below mocks the 'Users' getter that returns a list of ApplicationUsers
@@ -118,11 +118,11 @@ namespace VolunteerTrack.Tests.DAL
              *
              *below section may need to change the section afer Returns due to query_volusers; unsure about this part 
              */
-            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Provider).Returns(query_volusers.Provider);
-            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Expression).Returns(query_volusers.Expression);
-            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.ElementType).Returns(query_volusers.ElementType);
-            //mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_volusers.GetEnumerator());
-            //mock_context.Setup(c => c.Users).Returns(mock_users.Object);
+            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Provider).Returns(query_appUsers.Provider);
+            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Expression).Returns(query_appUsers.Expression);
+            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.ElementType).Returns(query_appUsers.ElementType);
+            mock_users.As<IQueryable<ApplicationUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_appUsers.GetEnumerator());
+            //mock_context.Setup(c => c.Users).Returns(mock_users);
 
             //need to mock all models 
             //mock focus
@@ -158,18 +158,19 @@ namespace VolunteerTrack.Tests.DAL
         {
             //Arrange
             ConnectToDatastore();
-           // int firstCount = Repo.Context.Activities.Count();
+           
             //Act
-            VolunteerActivity a_activity = new VolunteerActivity();
-            //{
-            //    ActivityId = 1,
-            //    OrgName = "AmericanRedCross",
-            //    NumberHours = 4,
-            //    Mileage = 14,
-            //    DollarsContributed = 100
-            //};
+            VolunteerActivity a_activity = new VolunteerActivity
+            {
+                ActivityId = 1,
+                OrgName = "American Red Cross",
+                NumberHours = 4,
+                Mileage = 14,
+                DollarsContributed = 100
+            };
+            Repo.AddActivity(a_activity);
             Repo.RemoveActivity(a_activity);
-            int expected_activities = 1;
+            int expected_activities = 2;
             int actual_activities = Repo.Context.Activities.Count();
             //Assert
             Assert.AreEqual(expected_activities, actual_activities);
@@ -180,7 +181,8 @@ namespace VolunteerTrack.Tests.DAL
         [TestMethod]
         public void EnsureCanEditActivity()
         {
-
+            ConnectToDatastore();
+          //  mock_activities.
         }
         //If charity adds/removes an area of focus.
         [TestMethod]
@@ -204,6 +206,16 @@ namespace VolunteerTrack.Tests.DAL
         {
 
         }
+        [TestMethod]
+        public void EnsureCanGetAllActivitiesForCurrentUser()
+        {
+            //Arrange
+            ConnectToDatastore();
+            //Act
+            Repo.Context.Activities.ToList();
+            //Assert
 
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,23 +32,40 @@ namespace VolunteerTrack.DAL
         }
         public void EditActivity(VolunteerActivity _activity)
         {
-           // Context.Activities.???//unsure how to handle this
+           //_activity.ActivityId.CompareTo
         }
         //may handle calulations in front-end
-        public void CalculateYTDDollarContributions(VolunteerActivity _dollarsContributed)
+        public void CalculateYTDDollarContributions(VolunteerActivity UserName)
         {
-            //if (_dollarsContributed != null)
-            //{
-            //    Context.Activities.VolunteerActivity.TotalYTD();
-            //}  may do this in Angular app.js file
+            var currentUser = UserName;
+           // Context.Activities.DollarsContributed.TotalYTD();
+            //may do this in Angular app.js file
         }
         //GetActivity method is for editing or deleting of an activity. Have to use the activityID for this possibly.
-        public void GetActivity(VolunteerActivity _activity)
+        public VolunteerActivity GetActivityById(int Id)
         {
-            Context.Activities.Find(_activity);
-            
+           return Context.Activities.Find(Id);     
         }
-
-        
+        //get all by user
+        //return whole list until I get users implemented User Manager applicationuser
+        public List<VolunteerActivity> GetAllActivitiesForAllUsers()
+        {
+            return Context.Activities.ToList();//this gets all for all users will have to limit at some point to current user
+        }
+        public List<VolunteerActivity> GetAllActivitiesForCurrentUser(string UserName)
+        {
+            return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
+            //this goes thru each activity and checks the username within the baseuser within the volunteeruser table and checks for a match, and adds to list if matched.
+        }
+        public VolunteerUser GetUserByUserName(string UserName)
+        {
+            var onlyUser = Context.Users.FirstOrDefault();
+            var onlyApplicationUser = Context.VolunteerUsers.FirstOrDefault();
+            onlyApplicationUser.BaseUser = onlyUser;
+            Context.SaveChanges();
+            return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
+        }
     }
 }
+
+//make sure I'm saving user with rest of the object
