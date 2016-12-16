@@ -7,6 +7,7 @@ using VolunteerTrack.DAL;
 using System.Linq;
 using System.Data.Entity;
 using System.EnterpriseServices;
+using System.Activities;
 
 namespace VolunteerTrack.Tests.DAL
 {
@@ -183,23 +184,13 @@ namespace VolunteerTrack.Tests.DAL
         {
             ConnectToDatastore();
           //  mock_activities.
-        }
-        //If charity adds/removes an area of focus.
-        [TestMethod]
-        public void EnsureCanEditFocus()
-        {
-
-        }
-        //If charity changes name.
-        [TestMethod]
-        public void EnsureCanEditOrganization()
-        {
-
-        }
+        }   
         [TestMethod]
         public void EnsureCannotAddDuplicateActivity()
         {
-
+            ConnectToDatastore();
+          //  Repo.Context.Activities.Add();
+            
         }
         [TestMethod]
         public void EnsureCanGetActivity()
