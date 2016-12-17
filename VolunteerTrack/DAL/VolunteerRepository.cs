@@ -59,13 +59,41 @@ namespace VolunteerTrack.DAL
         }
         public VolunteerUser GetUserByUserName(string UserName)
         {
-            var onlyUser = Context.Users.FirstOrDefault();
-            var onlyApplicationUser = Context.VolunteerUsers.FirstOrDefault();
-            onlyApplicationUser.BaseUser = onlyUser;
-            Context.SaveChanges();
+            //var onlyUser = Context.Users.FirstOrDefault();
+            //var onlyApplicationUser = Context.VolunteerUsers.FirstOrDefault();
+            //onlyApplicationUser.BaseUser = onlyUser;
+            //Context.SaveChanges();
             return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
         }
-    }
+        //similar but adjust Tweet is like Activity and Twit is m voluser 
+        //public void AddTweet(string username, string tweet_message)
+        //{
+        //    Twit found_twit = Context.TweeterUsers.FirstOrDefault(u => u.BaseUser.UserName == username);
+        //    if (found_twit != null)
+        //    {
+        //        Tweet new_tweet = new Tweet
+        //        {
+        //            Message = tweet_message,
+        //            CreatedAt = DateTime.Now,
+        //            Author = found_twit
+        //        };
+        //        Context.Tweets.Add(new_tweet);
+        //        Context.SaveChanges();
+        //    }
+        //}
+        public void CreateVolunteerUser(string UserName)
+        {
+            var user = GetAppUserByUserName(UserName);
+            var VolUser = new VolunteerUser();
+            VolUser.BaseUser = user;
+            Context.VolunteerUsers.Add(VolUser);
+            Context.SaveChanges();
+        }
+        public ApplicationUser GetAppUserByUserName(string UserName)
+        {
+            return Context.Users.FirstOrDefault(u => u.UserName == UserName);
+        }
+}
 }
 
 //make sure I'm saving user with rest of the object

@@ -7,6 +7,7 @@ app.controller('EditController', function ($scope, $http) {
     })
    .then(function (result) {
        $scope.activities = result.data;
+       console.log(result);
    }, function (error) {
        console.log(error);
    });
