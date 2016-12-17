@@ -33,5 +33,7 @@ namespace VolunteerTrack.Models
         public int NumberHours { get; set; }
         public int Mileage { get; set; }
         public int DollarsContributed { get; set; }
+        //add in volunteerUser so it will be added to the table
+        public virtual VolunteerUser VolunteerUser { get; set; }
     }
 }

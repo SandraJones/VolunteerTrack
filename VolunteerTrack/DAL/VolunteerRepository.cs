@@ -65,7 +65,8 @@ namespace VolunteerTrack.DAL
             //Context.SaveChanges();
             return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
         }
-        //similar but adjust Tweet is like Activity and Twit is m voluser 
+
+        //similar but adjust Tweet is like Activity and Twit is more like voluser 
         //public void AddTweet(string username, string tweet_message)
         //{
         //    Twit found_twit = Context.TweeterUsers.FirstOrDefault(u => u.BaseUser.UserName == username);
@@ -93,7 +94,5 @@ namespace VolunteerTrack.DAL
         {
             return Context.Users.FirstOrDefault(u => u.UserName == UserName);
         }
+    }
 }
-}
-
-//make sure I'm saving user with rest of the object
