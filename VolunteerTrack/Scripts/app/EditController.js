@@ -12,5 +12,5 @@ app.controller('EditController', function ($scope, $http) {
        console.log(error);
    });
 });
-//here is where I code in current user somehow
+
 //filter datetime in html file
