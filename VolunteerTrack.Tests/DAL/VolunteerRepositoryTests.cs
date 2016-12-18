@@ -180,15 +180,18 @@ namespace VolunteerTrack.Tests.DAL
         }
         //Edit activity to add in mileage, hours, dollars
         [TestMethod]
-        public void EnsureCanEditActivity()
+        public void EnsureCanEditActivity(string UserName)
         {
             ConnectToDatastore();
-          //  mock_activities.
+            Repo.GetAllActivitiesForCurrentUser(UserName).ToList();
+          
         }   
         [TestMethod]
         public void EnsureCannotAddDuplicateActivity()
         {
             ConnectToDatastore();
+          
+
           //  Repo.Context.Activities.Add();
             
         }
@@ -206,7 +209,19 @@ namespace VolunteerTrack.Tests.DAL
             Repo.Context.Activities.ToList();
             //Assert
 
+        }
+        [TestMethod]
+        public void RepoEnsureUsernameExists()
+        {
+            // Arrange
+            ConnectToDatastore();
 
+
+            // Act
+            bool exists = Repo.UsernameExists("susanm"); 
+
+            // Assert 
+            Assert.IsTrue(exists);
         }
     }
 }

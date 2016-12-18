@@ -35,9 +35,10 @@ namespace VolunteerTrack.Controllers
             repo.AddActivity(activity);
         }
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //public void PutAnUpdateIntoDB(int id, [FromBody]string value)
+        //{
+        //    repo.AddActivity(activity).select{ VolunteerActivity.Date}
+        //}
 
         // DELETE api/<controller>/5
         public void Delete(int id)

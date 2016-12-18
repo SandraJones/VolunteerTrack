@@ -47,7 +47,6 @@ namespace VolunteerTrack.DAL
            return Context.Activities.Find(Id);     
         }
         //get all by user
-        //return whole list until I get users implemented User Manager applicationuser
         public List<VolunteerActivity> GetAllActivitiesForAllUsers()
         {
             return Context.Activities.ToList();//this gets all for all users will have to limit at some point to current user
@@ -59,29 +58,9 @@ namespace VolunteerTrack.DAL
         }
         public VolunteerUser GetUserByUserName(string UserName)
         {
-            //var onlyUser = Context.Users.FirstOrDefault();
-            //var onlyApplicationUser = Context.VolunteerUsers.FirstOrDefault();
-            //onlyApplicationUser.BaseUser = onlyUser;
-            //Context.SaveChanges();
             return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
         }
 
-        //similar but adjust Tweet is like Activity and Twit is more like voluser 
-        //public void AddTweet(string username, string tweet_message)
-        //{
-        //    Twit found_twit = Context.TweeterUsers.FirstOrDefault(u => u.BaseUser.UserName == username);
-        //    if (found_twit != null)
-        //    {
-        //        Tweet new_tweet = new Tweet
-        //        {
-        //            Message = tweet_message,
-        //            CreatedAt = DateTime.Now,
-        //            Author = found_twit
-        //        };
-        //        Context.Tweets.Add(new_tweet);
-        //        Context.SaveChanges();
-        //    }
-        //}
         public void CreateVolunteerUser(string UserName)
         {
             var user = GetAppUserByUserName(UserName);
@@ -93,6 +72,25 @@ namespace VolunteerTrack.DAL
         public ApplicationUser GetAppUserByUserName(string UserName)
         {
             return Context.Users.FirstOrDefault(u => u.UserName == UserName);
+        }
+        public bool UsernameExists(string e)
+        {
+            /*
+            if (Context.Users.Any(u => u.UserName.Contains(v)))
+            {
+                return true;
+            }
+            return false;
+            */
+
+            VolunteerUser found_User = Context.VolunteerUsers.First(s =>s.BaseUser.UserName.ToLower() == e.ToLower());
+            if (found_User != null)
+            {
+                return true;
+            }
+
+            return false;
+
         }
     }
 }
