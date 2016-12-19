@@ -14,6 +14,7 @@ namespace VolunteerTrack.DAL
         public virtual DbSet<CharityFocus> Focuses { get; set; } 
         public virtual DbSet<VolunteerActivity> Activities { get; set; }
         public virtual DbSet<CharitableOrganization> CharitableOrganizations { get; set; }
+        public object VolunteerActivity { get; set; }
     }
 
 }

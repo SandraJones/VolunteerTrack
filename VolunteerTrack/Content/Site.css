@@ -25,3 +25,12 @@ textarea {
 .mapPlacement {
     align-content: center;
 }
+.navbar-header {
+    background-color: teal;
+}
+.navbar-collapse{
+    background-color: teal;
+}
+.navbar-inverse {
+    background-color: teal;
+}

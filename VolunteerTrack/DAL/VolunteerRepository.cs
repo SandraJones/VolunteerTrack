@@ -21,7 +21,6 @@ namespace VolunteerTrack.DAL
         
         public void AddActivity(VolunteerActivity _activity)
         {
-            //will have to add in a check for existing activity for that date??
             Context.Activities.Add(_activity);
             Context.SaveChanges();  
         }
@@ -32,9 +31,10 @@ namespace VolunteerTrack.DAL
         }
         public void EditActivity(VolunteerActivity _activity)
         {
-           //_activity.ActivityId.CompareTo
+            Context.Activities.Remove(_activity);
+            Context.Activities.Add(_activity);
+            Context.SaveChanges();
         }
-        //may handle calulations in front-end
         public void CalculateYTDDollarContributions(VolunteerActivity UserName)
         {
             var currentUser = UserName;
@@ -42,45 +42,35 @@ namespace VolunteerTrack.DAL
             //may do this in Angular app.js file
         }
         //GetActivity method is for editing or deleting of an activity. Have to use the activityID for this possibly.
-        public VolunteerActivity GetActivityById(int Id)
+        public VolunteerActivity GetActivityById(int activity_Id)
         {
-           return Context.Activities.Find(Id);     
-        }
-        //get all by user
-        //return whole list until I get users implemented User Manager applicationuser
+            VolunteerActivity found_activity = Context.Activities.FirstOrDefault(i => i.ActivityId == activity_Id);
+            if (found_activity != null)
+            {
+                return found_activity;
+            }
+            else
+            {
+                return null;
+            }
+        } 
+         
         public List<VolunteerActivity> GetAllActivitiesForAllUsers()
         {
-            return Context.Activities.ToList();//this gets all for all users will have to limit at some point to current user
+            return Context.Activities.ToList();
         }
+
         public List<VolunteerActivity> GetAllActivitiesForCurrentUser(string UserName)
         {
             //this goes thru each activity and checks the username within the baseuser within the volunteeruser table and checks for a match, and adds to list if matched.
             return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
         }
+
         public VolunteerUser GetUserByUserName(string UserName)
         {
-            //var onlyUser = Context.Users.FirstOrDefault();
-            //var onlyApplicationUser = Context.VolunteerUsers.FirstOrDefault();
-            //onlyApplicationUser.BaseUser = onlyUser;
-            //Context.SaveChanges();
             return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
         }
-        //similar but adjust Tweet is like Activity and Twit is m voluser 
-        //public void AddTweet(string username, string tweet_message)
-        //{
-        //    Twit found_twit = Context.TweeterUsers.FirstOrDefault(u => u.BaseUser.UserName == username);
-        //    if (found_twit != null)
-        //    {
-        //        Tweet new_tweet = new Tweet
-        //        {
-        //            Message = tweet_message,
-        //            CreatedAt = DateTime.Now,
-        //            Author = found_twit
-        //        };
-        //        Context.Tweets.Add(new_tweet);
-        //        Context.SaveChanges();
-        //    }
-        //}
+
         public void CreateVolunteerUser(string UserName)
         {
             var user = GetAppUserByUserName(UserName);
@@ -89,11 +79,24 @@ namespace VolunteerTrack.DAL
             Context.VolunteerUsers.Add(VolUser);
             Context.SaveChanges();
         }
+
         public ApplicationUser GetAppUserByUserName(string UserName)
         {
             return Context.Users.FirstOrDefault(u => u.UserName == UserName);
         }
-}
-}
 
-//make sure I'm saving user with rest of the object
+        public bool UsernameExists(string e)
+        {
+            VolunteerUser found_User = Context.VolunteerUsers.FirstOrDefault(s =>s.BaseUser.UserName.ToLower() == e.ToLower());
+            if (found_User != null)
+            {
+                return true;
+            }
+
+            return false;
+
+        }
+
+      
+    }
+}
