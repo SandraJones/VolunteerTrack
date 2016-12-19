@@ -186,19 +186,22 @@ namespace VolunteerTrack.Tests.DAL
             Repo.GetAllActivitiesForCurrentUser(UserName).ToList();
           
         }   
-        [TestMethod]
-        public void EnsureCannotAddDuplicateActivity()
-        {
-            ConnectToDatastore();
-          
-
-          //  Repo.Context.Activities.Add();
+        //[TestMethod]
+        //public void EnsureCannotAddDuplicateActivity()
+        //{
+        //    ConnectToDatastore();  
+        //    if(Repo.Context.Activities.Contains<_activity> ==
             
-        }
+        //}
         [TestMethod]
-        public void EnsureCanGetActivity()
+        public void EnsureCanGetActivityById()
         {
-
+            //Arrange
+            ConnectToDatastore();
+            //Act
+      //      Repo.Context.Activities.GetActivityById();
+            //Assert
+      //      Assert.AreEqual);   
         }
         [TestMethod]
         public void EnsureCanGetAllActivitiesForCurrentUser()
