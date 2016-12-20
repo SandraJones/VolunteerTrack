@@ -23,7 +23,7 @@
                     <td>{{activity.NumberHours}}</td>
                     <td>{{activity.Mileage}}</td>
                     <td>{{activity.DollarsContributed}}</td>
-                    <td><button class="editButton">Edit</button><button class="removeButton">Remove</button></td>
+                    <td><button ng-click="UpdateActivity(activity.ActivityId)" class="editButton">Edit</button><button class="removeButton">Remove</button></td>
                 </tr>
             </tbody>
         </table>
@@ -31,7 +31,5 @@
         <br />
     </div>
 </div>
-
-
 
 

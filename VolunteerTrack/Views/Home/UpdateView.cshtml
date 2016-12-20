@@ -1,0 +1,35 @@
+﻿
+<div ng-view="UpdateView">
+    <!--<this will be list view
+          ng-viewdirectivenoticeswhenI'monhom/contact.load partial
+    and when I'm on home/contact/edit load other html-->
+    
+        <!--This is where the view details html code goes are.-->
+    <div class="options" ng-controller="UpdateController">
+        <form name="form.UpdateActivity">
+            <fieldset>
+                <p>
+                    <label>Name of Organization Where You Volunteered</label>
+                    <input type="text" ng-model="Activity.OrgName" class="field" required pattern="[a-zA-Z0-9]+" />
+                </p>
+                <p>
+                    <label>Number of Hours You Volunteered</label>
+                    <input type="text" ng-model="Activity.NumberHours" class="field" required pattern="[a-zA-Z0-9]+" />
+                </p>
+                <p>
+                    <label>Number of Miles Driven Round Trip</label>
+                    <input type="text" ng-model="Activity.Mileage" class="field" required pattern="[a-zA-Z0-9]+" />
+                </p>
+                <p>
+                    <label>DollarsContributed</label>
+                    <input type="text" ng-model="Activity.DollarsContributed" class="field" required pattern="[a-zA-Z0-9]+" />
+                </p>
+                <p>
+                    <label>Date</label>
+                    <input type="datetime-local" ng-model="Activity.Date" class="field" required />
+                </p>
+                <button type="submit" ng-click="saveActivity()">SUBMIT</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

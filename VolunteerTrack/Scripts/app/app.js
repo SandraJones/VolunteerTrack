@@ -1,4 +1,13 @@
-﻿var app = angular.module("Tracker", []);
+﻿var app = angular.module("Tracker", ["ngRoute"]);
+
+app.config(function ($routeProvider) {
+    $routeProvider.
+        when('/EditActivityPage', {
+            templateUrl: '/Home/UpdateActivity',
+            controller: 'UpdateController'
+        });
+});
+
 
 app.controller('ActivitiesController', function ($scope, $http) {
     $scope.saveActivity = function () {

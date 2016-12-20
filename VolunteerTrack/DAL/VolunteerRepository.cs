@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using System.Data.Entity.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,10 @@ namespace VolunteerTrack.DAL
             Context.Activities.Remove(_activity);
             Context.SaveChanges();
         }
-        public void EditActivity(VolunteerActivity _activity)
+        public void UpdateActivity(VolunteerActivity _activity)
         {
-            Context.Activities.Remove(_activity);
-            Context.Activities.Add(_activity);
-            Context.SaveChanges();
+            Context.Entry(_activity).State = System.Data.Entity.EntityState.Modified;
+            Context.SaveChanges();     
         }
         public void CalculateYTDDollarContributions(VolunteerActivity UserName)
         {
