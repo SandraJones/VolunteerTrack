@@ -2,10 +2,14 @@
 
 app.config(function ($routeProvider) {
     $routeProvider.
-        when('/EditActivityPage', {
-            templateUrl: '/Home/UpdateActivity',
+        when('/EditActivityPage/:activityId', {
+            templateUrl: '/Partials/UpdateView.html',
             controller: 'UpdateController'
-        });
+        })
+        .when('/', {
+            templateUrl: '/partials/ListOfActivities.html',
+            controller: 'EditController'
+        } );
 });
 
 

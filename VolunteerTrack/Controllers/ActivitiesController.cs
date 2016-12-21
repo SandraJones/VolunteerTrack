@@ -34,13 +34,10 @@ namespace VolunteerTrack.Controllers
             activity.VolunteerUser = currentUser;
             repo.AddActivity(activity);
         }
-        // PUT api/<controller>
+ //****// PUT api/<controller>
         public void UpdateActivity(int Id, [FromBody]VolunteerActivity value)
         {
             repo.UpdateActivity(value);
-
-            
-            //.select{ VolunteerActivity.Date}
             
         }
 

@@ -34,3 +34,6 @@ textarea {
 .navbar-inverse {
     background-color: teal;
 }
+.navbar-brand {
+    color:yellow;
+}

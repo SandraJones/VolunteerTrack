@@ -1,0 +1,28 @@
+﻿
+<div>
+    <div>
+        <table class="highlight responsive-table">
+            <thead>
+                <tr>
+                    <th data-field="Date">Date</th>
+                    <th data-field="OrgName">OrganizationName</th>
+                    <th data-field="NumberHours">Hours</th>
+                    <th data-field="Mileage">Mileage</th>
+                    <th data-field="DollarsContributed">DollarsContributed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="activity in activities">
+                    <td>{{activity.Date}}</td>
+                    <td>{{activity.OrgName}}</td>
+                    <td>{{activity.NumberHours}}</td>
+                    <td>{{activity.Mileage}}</td>
+                    <td>{{activity.DollarsContributed}}</td>
+                    <td><button ng-click="EditActivity(activity.ActivityId)" class="editButton">Edit</button><button class="removeButton">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <br />
+    </div>
+</div>

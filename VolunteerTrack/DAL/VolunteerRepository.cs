@@ -30,11 +30,13 @@ namespace VolunteerTrack.DAL
             Context.Activities.Remove(_activity);
             Context.SaveChanges();
         }
+        //************************************************************//
         public void UpdateActivity(VolunteerActivity _activity)
         {
             Context.Entry(_activity).State = System.Data.Entity.EntityState.Modified;
             Context.SaveChanges();     
         }
+        //**************************************************************//
         public void CalculateYTDDollarContributions(VolunteerActivity UserName)
         {
             var currentUser = UserName;
