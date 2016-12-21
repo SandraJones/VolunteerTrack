@@ -26,11 +26,17 @@ textarea {
     align-content: center;
 }
 .navbar-header {
-    background-color: teal;
+    background-color: #7FF3F5;
 }
 .navbar-collapse{
-    background-color: teal;
+    background-color:#7FF3F5;
 }
 .navbar-inverse {
-    background-color: teal;
+    background-color: #7FF3F5;
+}
+.navbar-brand {
+    color:#808080;
+}
+body {
+    background-color: #78CBCC;
 }

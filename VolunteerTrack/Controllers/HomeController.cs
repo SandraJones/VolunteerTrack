@@ -31,5 +31,9 @@ namespace VolunteerTrack.Controllers
 
             return View();
         }
+        public ActionResult UpdateActivity()
+        {
+            return View("UpdateView");
+        }
     }
 }

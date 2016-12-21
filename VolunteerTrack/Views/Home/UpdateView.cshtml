@@ -1,16 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Track each activity here";
-}
-<h2>@ViewData["Title"].</h2>
-
-
-<div>
-    <div class="options" ng-controller="ActivitiesController">
-        <form  name="form.InputActivity">
+﻿
+<div ng-view="UpdateView">
+    <!--<this will be list view
+          ng-viewdirectivenoticeswhenI'monhom/contact.load partial
+    and when I'm on home/contact/edit load other html-->
+    
+        <!--This is where the view details html code goes are.-->
+    <div class="options" ng-controller="UpdateController">
+        <form name="UpdateActivity">
             <fieldset>
                 <p>
                     <label>Name of Organization Where You Volunteered</label>
-                    <input type="text" ng-model="Activity.OrgName" class="field" required pat`tern="[a-zA-Z0-9]+" />
+                    <input type="text" ng-model="Activity.OrgName" class="field" required pattern="[a-zA-Z0-9]+" />
                 </p>
                 <p>
                     <label>Number of Hours You Volunteered</label>
@@ -26,15 +26,9 @@
                 </p>
                 <p>
                     <label>Date</label>
-                    <input type="date" ng-model="Activity.Date" class="field" required />
+                    <input type="datetime-local" ng-model="Activity.Date" class="field" required />
                 </p>
                 <button type="submit" ng-click="saveActivity()">SUBMIT</button>
-                <br/>
-                <br/>
-                <br/>
-                <p><label>Total hours volunteered this year:</label></p>
-                <p><label>Total mileage for the year:</label></p>
-                <p><label>Total monetary contributions for the year:</label></p>
             </fieldset>
         </form>
     </div>

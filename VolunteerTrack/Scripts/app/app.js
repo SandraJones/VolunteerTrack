@@ -1,4 +1,17 @@
-﻿var app = angular.module("Tracker", []);
+﻿var app = angular.module("Tracker", ["ngRoute"]);
+
+app.config(function ($routeProvider) {
+    $routeProvider.
+        when('/EditActivityPage/:activityId', {
+            templateUrl: '/Partials/UpdateView.html',
+            controller: 'UpdateController'
+        })
+        .when('/', {
+            templateUrl: '/partials/ListOfActivities.html',
+            controller: 'EditController'
+        } );
+});
+
 
 app.controller('ActivitiesController', function ($scope, $http) {
     $scope.saveActivity = function () {
