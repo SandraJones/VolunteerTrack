@@ -13,17 +13,9 @@ app.controller('EditController', function ($scope, $location, $http) {
            console.log(error);
        });
 
-    //*************////
-    //$scope.change = function () {
-    //    console.log(change);
-    //    console.log("change");
-    //};
     $scope.EditActivity = function (ActivityId) {
         $location.path("/EditActivityPage/" + ActivityId)
-
     }
-
-
 
     $scope.UpdateActivity = function (value) {
         

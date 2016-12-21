@@ -1,7 +1,7 @@
 ﻿"use strict";
 app.controller('UpdateController', function ($scope, $routeParams, $location, $http) {
     //research ng-Route to see if it needs to be in fn above
-    //$scope.SaveActivity();
+   
     $http({
         url: '/api/Activities/'+$routeParams.activityId,
         method: "GET"
@@ -11,11 +11,6 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
     }, function (error) {
         console.log(error);
     });
-
-
-      
-
-
 
     $scope.UpdateActivity = function () {
         $http({
@@ -32,7 +27,8 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
             //poss call an error toast msg
             console.log(error);
         });
-  };
+    };
 
+    //$scope.SaveActivity();
 
 });

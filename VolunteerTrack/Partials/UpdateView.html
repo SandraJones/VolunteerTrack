@@ -1,7 +1,4 @@
-﻿    <!--<this will be list view
-          ng-viewdirectivenoticeswhenI'monhom/contact.load partial
-    and when I'm on home/contact/edit load other html-->
-    <!--This is where the view details html code goes are.-->
+﻿    
     <div class="options">
         <form name="UpdateActivity">
             <fieldset>
@@ -23,9 +20,9 @@
                 </p>
                 <p>
                     <label>Date</label>
-                    <input type="datetime-local" ng-model="Activity.Date" class="field" required />
+                    <input type="date" ng-model="Activity.Date" class="field" required />
                 </p>
-                <button type="submit" ng-click="saveActivity()">SUBMIT</button>
+                <button type="submit" ng-click="UpdateActivity()">SUBMIT</button>
             </fieldset>
         </form>
     </div>
