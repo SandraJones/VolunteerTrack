@@ -35,23 +35,43 @@
     <div class="mapPlacement">
         <style>
             #map {
-                width: 60%;
+                width: 100%;
+                margin-top: 30%;
                 height: 400px;
+                align-content: center;
                 background-color: grey;
             }
         </style>
     </div>
     <script>
         function initMap() {
-            var uluru = { lat: 36.138, lng: -86.754 };
+            var BoyScoutsOfAmerica = { lat: 36.138, lng: -86.810 };
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
-                center: uluru
+                center: BoyScoutsOfAmerica,
+                marker1: NashvilleRescueMission
             });
             var marker = new google.maps.Marker({
-                position: uluru,
+                position: BoyScoutsOfAmerica,
+                OrgName: BoyScoutsOfAmerica,
+                map: map
+
+            });
+            var NashvilleRescueMission = { lat: 36.168, lng: -86.805 };
+            var marker1 = new google.maps.Marker({
+                position: NashvilleRescueMission,
+                OrgName: NashvilleRescueMission,
                 map: map
             });
+
+
+
+
+
+
+
+
+
         }
     </script>
     <script async defer
