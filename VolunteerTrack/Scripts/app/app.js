@@ -41,4 +41,18 @@ app.controller('ActivitiesController', function ($scope, $http) {
             console.log(error);
         });
     }
+    //display YTD calculations
+    $scope.calculateYTDDollarContributions = function () {
+        $http({
+            url: '/api/Activities/',
+            method: "GET"
+        })
+      .then(function (result) {
+          $scope.activities = result.data;
+          $scope.activities.data.TotalYTD();
+
+      }, function (error) {
+          console.log(error);
+      });
+    }
 });
