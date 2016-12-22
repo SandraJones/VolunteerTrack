@@ -6,7 +6,7 @@
 
 <div>
     <div class="options" ng-controller="ActivitiesController">
-        <form  name="form.InputActivity">
+        <form name="form.InputActivity">
             <fieldset>
                 <p>
                     <label>Name of Organization Where You Volunteered</label>
@@ -29,13 +29,20 @@
                     <input type="date" ng-model="Activity.Date" class="field" required />
                 </p>
                 <button type="submit" ng-click="saveActivity()">SUBMIT</button>
-                <br/>
-                <br/>
-                <br/>
+                <br />
+                <br />
+                <br />
                 <p><label>Total hours volunteered this year:</label></p>
                 <p><label>Total mileage for the year:</label></p>
                 <p><label>Total monetary contributions for the year:</label></p>
             </fieldset>
         </form>
     </div>
+</div>
+<div>
+    <img src="~/Content/Photos/zooRevisedIMG_0992.jpg" />
+    <p>
+        Consider volunteering at the zoo.
+        <a class="btn btn-default" href="https://www.nashvillezoo.org/volunteer-at-the-zoo"></a>
+    </p>
 </div>
