@@ -1,6 +1,6 @@
 ﻿    
     <div class="options">
-        <form name="UpdateActivity">
+        <form name="UpdateActivityForm">
             <fieldset>
                 <p>
                     <label>Name of Organization Where You Volunteered</label>
@@ -20,7 +20,7 @@
                 </p>
                 <p>
                     <label>Date</label>
-                    <input type="date" ng-model="Activity.Date" class="field" required />
+                    <input type="text" ng-model="Activity.Date" class="field" required />
                 </p>
                 <button type="submit" ng-click="UpdateActivity(activity.value)">SUBMIT</button>
             </fieldset>

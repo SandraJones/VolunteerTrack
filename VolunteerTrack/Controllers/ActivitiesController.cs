@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -34,11 +34,12 @@ namespace VolunteerTrack.Controllers
             activity.VolunteerUser = currentUser;
             repo.AddActivity(activity);
         }
- //****// PUT api/<controller>
-        public void UpdateActivity(int Id, [FromBody]VolunteerActivity value)
+        // PUT api/<controller>
+        public void Put(int Id, [FromBody]VolunteerActivity value)
         {
+            var foundActivityForUpdate = repo.GetActivityById(Id);
             repo.UpdateActivity(value);
-            
+           
         }
 
         // DELETE api/<controller>/5
