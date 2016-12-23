@@ -1,5 +1,17 @@
 ﻿var app = angular.module("Tracker", ["ngRoute"]);
 
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function () {
+    $('#slideshow > div:first')
+      .fadeOut(1000)
+      .next()
+      .fadeIn(1000)
+      .end()
+      .appendTo('#slideshow');
+}, 20000);
+
+
 app.config(function ($routeProvider) {
     $routeProvider.
         when('/EditActivityPage/:activityId', {
@@ -28,5 +40,19 @@ app.controller('ActivitiesController', function ($scope, $http) {
             //poss call an error toast msg
             console.log(error);
         });
+    }
+    //display YTD calculations
+    $scope.calculateYTDDollarContributions = function () {
+        $http({
+            url: '/api/Activities/',
+            method: "GET"
+        })
+      .then(function (result) {
+          $scope.activities = result.data;
+          $scope.activities.data.TotalYTD();
+
+      }, function (error) {
+          console.log(error);
+      });
     }
 });

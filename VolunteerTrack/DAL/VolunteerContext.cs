@@ -9,6 +9,8 @@ namespace VolunteerTrack.DAL
 {
     public class VolunteerContext : ApplicationDbContext
     {
+        internal object _activity;
+
         // 'virtual' is for Moq during testing
         public virtual DbSet<VolunteerUser> VolunteerUsers { get; set; }
         public virtual DbSet<CharityFocus> Focuses { get; set; } 

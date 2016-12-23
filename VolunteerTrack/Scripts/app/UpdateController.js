@@ -14,7 +14,7 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
 
     $scope.UpdateActivity = function () {
         $http({
-            url: '/api/Activities/',
+            url: '/api/Activities/4',
             method: "PUT",
             data: $scope.Activity
         })

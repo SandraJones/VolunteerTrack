@@ -1,7 +1,15 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<h1>This map shows just a few of the locations of volunteer opportunities in Middle Tennessee.</h1>
+
+<div id="slideshow">
     <div>
+        <p>
+            "Never doubt that a small group of thoughtful, committed
+            citizens can change the world; indeed, it's the only thing
+            that ever has." Margaret Mead
+        </p>
         <p>
             Hands On Nashville is a great site to view if you want to get
             involved in your community, and you live in Nashville.
@@ -9,52 +17,126 @@
             <a class="btn btn-default" href="https://www.hon.org/HOC__Affiliate_Home_Page">Have fun and VOLUNTEER!</a>
         </p>
     </div>
-        <div>
-            <p>
-                The Nashville Rescue Mission is a very worthy organization that is a great place
-                to volunteer or make dollar contributions to assist the homeless. Please
-                click on this link to see volunteer opportunities with the Rescue Mission.
-                <a class="btn btn-default" href="https://nashvillerescuemission.org/">
-                    Have fun and VOLUNTEER!
-                </a>
-            </p>
-        </div>
-     <div class="row">
-        <div class="col-md-9">
-            <h2>VolunteerTrack</h2>
-            <p>
-            VolunteerTrack is a quick and easy way to keep track of your volunteer
-            hours, mileage, and charitable contributions. When it comes time to do
-            your taxes, you'll be glad you used it. To see
-            the tracking form, click here!
-            <a class="btn btn-default" href="~/Home/About">Track Form</a>
-            </p>
-         </div>
-     </div>
-
-    <div class="mapPlacement">
-        <style>
-            #map {
-                width: 60%;
-                height: 400px;
-                background-color: grey;
-            }
-        </style>
+    <div>
+        <p>
+            "At Nashville Rescue Mission, we address homelessness and hopelessness in a way that is
+            transformational and Christ-centered. We believe in order for someone’s heart to be open
+            to change, we must first meet his or her most basic and immediate needs."
+        </p>
+        <p>
+            The Nashville Rescue Mission is a very worthy organization that is a great place
+            to volunteer or make dollar contributions to assist the homeless. Please
+            click on this link to see volunteer opportunities with the Rescue Mission.
+            <a class="btn btn-default" href="https://nashvillerescuemission.org/">
+                Have fun and VOLUNTEER!
+            </a>
+        </p>
     </div>
-    <script>
-        function initMap() {
-            var uluru = { lat: 36.138, lng: -86.754 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
+    <div>
+        <p>
+            "The mission of the Middle Tennessee Council, Boy Scouts of America is to prepare
+            young people to make ethical and moral choices over their lifetime by instilling
+            in them the values of the Scout Oath and Law.
+        </p>
+        <p>
+            The vision of the Middle Tennessee Council is to foster the character development,
+            citizenship training and physical fitness of young people through an emphasis on
+            outdoor program experiences to prepare them to be responsible, contributing members
+            of society over their lifetime by instilling values based upon those found in the
+            Scout Oath and Law. Click here to learn more about Scouting!" 
+            <a class="btn btn-default" href="http://mtcbsa.org/Volunteers/aboutus/contactus.html">
+                Have fun and VOLUNTEER!
+            </a>
+        </p>
+    </div>
+</div>
+
+
+
+<div class="mapPlacement">
+    <style>
+        #map {
+            width: 100%;
+            margin-top: 10%;
+            height: 400px;
+            align-content: center;
+            background-color: grey;
         }
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyYRivEIIvOGn2A8QyOlrdUE9js8PGOwY&callback=initMap"> 
-    </script>
-    
+    </style>
+</div>
+<script>
+    function initMap() {
+        var BoyScoutsOfAmerica = { lat: 36.138, lng: -86.810 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: BoyScoutsOfAmerica,
+            marker1: NashvilleRescueMission
+        });
+        var marker = new google.maps.Marker({
+            position: BoyScoutsOfAmerica,
+            OrgName: BoyScoutsOfAmerica,
+            map: map
+
+        });
+        var NashvilleRescueMission = { lat: 36.168, lng: -86.805 };
+        var marker1 = new google.maps.Marker({
+            position: NashvilleRescueMission,
+            OrgName: NashvilleRescueMission,
+            map: map
+        });
+        var OasisCenter = { lat: 36.159, lng: -86.801 };
+        var marker2 = new google.maps.Marker({
+            position: OasisCenter,
+            OrgName: OasisCenter,
+            map: map
+        });
+        var LongHunterStatePark = { lat: 36.094, lng: -86.559 };
+        var marker3 = new google.maps.Marker({
+            position: LongHunterStatePark,
+            OrgName: LongHunterStatePark,
+            map: map
+        });
+        var RadnorStatePark = { lat: 36.060, lng: -86.807 };
+        var marker4 = new google.maps.Marker({
+            position: LongHunterStatePark,
+            OrgName: LongHunterStatePark,
+            map: map
+        });
+        var MonroeCarellChildrenHospital = { lat: 36.139, lng: -86.838 };
+        var marker5 = new google.maps.Marker({
+            position: MonroeCarellChildrenHospital,
+            OrgName: MonroeCarellChildrenHospital,
+            map: map
+        });
+        var TennesseeSchoolForTheBlind = { lat: 36.167, lng: -86.656 };
+        var marker6 = new google.maps.Marker({
+            position: TennesseeSchoolForTheBlind,
+            OrgName: TennesseeSchoolForTheBlind,
+            map: map
+        });
+        var PercyWarnerPark = { lat: 36.068, lng: -86.886 };
+        var marker7 = new google.maps.Marker({
+            position: PercyWarnerPark,
+            OrgName: PercyWarnerPark,
+            map: map
+        });
+        var NashvilleHumaneAssociation = { lat: 36.147, lng: -86.862 };
+        var marker8 = new google.maps.Marker({
+            position: NashvilleHumaneAssociation,
+            OrgName: NashvilleHumaneAssociation,
+            map: map
+        });
+        var TheFranklinTheatre = { lat: 35.924, lng: -86.873 };
+        var marker8 = new google.maps.Marker({
+            position: NashvilleHumaneAssociation,
+            OrgName: NashvilleHumaneAssociation,
+            map: map
+        });
+
+
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyYRivEIIvOGn2A8QyOlrdUE9js8PGOwY&callback=initMap">
+
+</script>
