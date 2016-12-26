@@ -1,7 +1,7 @@
 ﻿"use strict";
 app.controller('UpdateController', function ($scope, $routeParams, $location, $http) {
-    //research ng-Route to see if it needs to be in fn above
-   
+    //This controller gets the specific Activity that user wants to edit AND
+    console.log("UpdateController get activity that user wants to edit");
     $http({
         url: '/api/Activities/'+$routeParams.activityId,
         method: "GET"
@@ -9,9 +9,9 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
     .then(function (response) {
         $scope.Activity = response.data;
     }, function (error) {
-        console.log(error);
     });
 
+    //this part of the controller handles the Submit button click to save user changes.
     $scope.UpdateActivity = function () {
         $http({
             url: '/api/Activities/4',
@@ -19,16 +19,12 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
             data: $scope.Activity
         })
         .then(function (result) {
-            console.log(result);
             //call toast msg
-            
             $scope.Activity = {};
         }, function (error) {
             //poss call an error toast msg
-            console.log(error);
         });
     };
-
-    //$scope.SaveActivity();
-
+    //this part of the controller handles the Delete activity function.
+    
 });

@@ -38,13 +38,6 @@ namespace VolunteerTrack.DAL
             Context.SaveChanges();     
         }
        
-        public void CalculateYTDDollarContributions(VolunteerActivity UserName)
-        {
-            var currentUser = UserName;
-           // Context.Activities.DollarsContributed.TotalYTD();
-            //may do this in Angular app.js file
-        }
-        //GetActivity method is for editing or deleting of an activity. Have to use the activityID for this possibly.
         public VolunteerActivity GetActivityById(int activity_Id)
         {
             VolunteerActivity found_activity = Context.Activities.FirstOrDefault(i => i.ActivityId == activity_Id);
