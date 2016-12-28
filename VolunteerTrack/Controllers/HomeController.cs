@@ -13,7 +13,7 @@ namespace VolunteerTrack.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult InputActivity()
         {
             ViewBag.Message = "Enter your activity information here.";
 
@@ -25,9 +25,9 @@ namespace VolunteerTrack.Controllers
             ViewBag.Message = "Your Activities";
             return View();
         }
-        public ActionResult Contact()
+        public ActionResult Activities()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your Activitives List";
 
             return View();
         }
