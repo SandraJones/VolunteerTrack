@@ -62,12 +62,12 @@ namespace VolunteerTrack.DAL
             return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
         }
 
-        public int calculateYTDNumberHours(string UserName)
-        {
-            VolunteerRepository Repo = new VolunteerRepository();
-            Repo.GetAllActivitiesForCurrentUser(UserName);
-            return Context.Activities.Where(activity => activity.Sum(NumberHours));
-        }
+        //public int calculateYTDNumberHours(string UserName)
+        //{
+        //    VolunteerRepository Repo = new VolunteerRepository();
+        //    Repo.GetAllActivitiesForCurrentUser(UserName);
+        //    return Context.Activities.Where(activity => activity.Sum(NumberHours));
+        //}
 
         public VolunteerUser GetUserByUserName(string UserName)
         {
