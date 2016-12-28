@@ -76,7 +76,7 @@
             center: BoyScoutsOfAmerica,
             marker1: NashvilleRescueMission
         });
-        var marker = new google.maps.Marker({
+        var marker2 = new google.maps.Marker({
             position: BoyScoutsOfAmerica,
             OrgName: BoyScoutsOfAmerica,
             map: map
@@ -89,55 +89,84 @@
             map: map
         });
         var OasisCenter = { lat: 36.159, lng: -86.801 };
-        var marker2 = new google.maps.Marker({
+        var marker3 = new google.maps.Marker({
             position: OasisCenter,
             OrgName: OasisCenter,
             map: map
         });
         var LongHunterStatePark = { lat: 36.094, lng: -86.559 };
-        var marker3 = new google.maps.Marker({
-            position: LongHunterStatePark,
-            OrgName: LongHunterStatePark,
-            map: map
-        });
-        var RadnorStatePark = { lat: 36.060, lng: -86.807 };
         var marker4 = new google.maps.Marker({
             position: LongHunterStatePark,
             OrgName: LongHunterStatePark,
             map: map
         });
-        var MonroeCarellChildrenHospital = { lat: 36.139, lng: -86.838 };
+        var RadnorStatePark = { lat: 36.063, lng: -86.810 };
         var marker5 = new google.maps.Marker({
+            position: RadnorStatePark,
+            OrgName: RadnorStatePark,
+            map: map
+        });
+        var MonroeCarellChildrenHospital = { lat: 36.139, lng: -86.838 };
+        var marker6 = new google.maps.Marker({
             position: MonroeCarellChildrenHospital,
             OrgName: MonroeCarellChildrenHospital,
             map: map
         });
         var TennesseeSchoolForTheBlind = { lat: 36.167, lng: -86.656 };
-        var marker6 = new google.maps.Marker({
+        var marker7 = new google.maps.Marker({
             position: TennesseeSchoolForTheBlind,
             OrgName: TennesseeSchoolForTheBlind,
             map: map
         });
         var PercyWarnerPark = { lat: 36.068, lng: -86.886 };
-        var marker7 = new google.maps.Marker({
+        var marker8 = new google.maps.Marker({
             position: PercyWarnerPark,
             OrgName: PercyWarnerPark,
             map: map
         });
         var NashvilleHumaneAssociation = { lat: 36.147, lng: -86.862 };
-        var marker8 = new google.maps.Marker({
+        var marker9 = new google.maps.Marker({
             position: NashvilleHumaneAssociation,
             OrgName: NashvilleHumaneAssociation,
             map: map
         });
         var TheFranklinTheatre = { lat: 35.924, lng: -86.873 };
-        var marker8 = new google.maps.Marker({
-            position: NashvilleHumaneAssociation,
-            OrgName: NashvilleHumaneAssociation,
+        var marker10 = new google.maps.Marker({
+            position: TheFranklinTheatre,
+            OrgName: TheFranklinTheatre,
             map: map
         });
-
-
+        marker1.addListener('click', function () {
+            alert('NashvilleRescueMission');
+        });
+        marker2.addListener('click', function () {
+            alert('BoyScoutsOfAmerica');
+        });
+        marker3.addListener('click', function () {
+            alert('OasisCenter');
+            //infowindow find under googlemapapi infowindow; call goes here to open the window;alert("listener works");
+        });
+        marker4.addListener('click', function () {
+            alert('LongHunterStatePark');
+        });
+        marker5.addListener('click', function () {
+            alert('RadnorStatePark');
+        });
+        marker6.addListener('click', function () {
+            alert('MonroeCarellChildrenHospital');
+        });
+        marker7.addListener('click', function () {
+            alert(' TennesseeSchoolForTheBlind');
+        });
+        marker8.addListener('click', function () {
+            alert('PercyWarnerPark');
+        });
+        marker9.addListener('click', function () {
+            alert('NashvilleHumaneAssociation');
+        });
+        marker10.addListener('click', function () {
+            alert('TheFranklinTheatre');
+        });
     }
 </script>
 <script async defer

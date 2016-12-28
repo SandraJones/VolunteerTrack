@@ -90,9 +90,6 @@ namespace VolunteerTrack.DAL
             }
 
             return false;
-
         }
-
-      
     }
 }
