@@ -26,5 +26,17 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
         });
     };
     //this part of the controller handles the Delete activity function.
-    
+    //not yet working
+    $scope.RemoveActivity = function () {
+        console.log("Remove function kicked off in UpdateController");
+        $http({
+            url: '/api/Activities/5',
+            method: "Delete"
+        })
+        .then(function (result) {
+        }, function (error) {
+
+        });
+    }
+
 });
