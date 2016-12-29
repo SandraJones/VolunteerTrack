@@ -43,16 +43,14 @@ namespace VolunteerTrack.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(VolunteerActivity activity, int ActivityId)
+        [HttpDelete]
+        public void Delete(int id)
         {
-            var foundActivityforRemoval = repo.GetActivityById(ActivityId);
-            repo.RemoveActivity(foundActivityforRemoval);
+           
+            if(id != 0) {
+                repo.RemoveActivity(id);
+            }
         }
-        //this code below is what I sstarted with
-        //public void RemoveActivityByActivityId(int Id)
-        //{
-        //    var foundActivityforRemoval = repo.GetActivityById(Id);
-        //    repo.RemoveActivity(foundActivityforRemoval);
-        //}
+        
     }
 }
