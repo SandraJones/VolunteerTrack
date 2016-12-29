@@ -26,10 +26,14 @@ namespace VolunteerTrack.DAL
             Context.Activities.Add(_activity);
             Context.SaveChanges();  
         }
-        public void RemoveActivity(VolunteerActivity _activity)
-        {
-            Context.Activities.Remove(_activity);
-            Context.SaveChanges();
+        public void RemoveActivity(int _ActivityId)
+        {   
+            if(_ActivityId != 0) {
+
+                var Activity = Context.Activities.Find(_ActivityId);
+                Context.Activities.Remove(Activity);
+                Context.SaveChanges();
+            }
         }
        
         public void UpdateActivity(VolunteerActivity _activity)
@@ -62,12 +66,13 @@ namespace VolunteerTrack.DAL
             return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
         }
 
-        //public int calculateYTDNumberHours(string UserName)
-        //{
-        //    VolunteerRepository Repo = new VolunteerRepository();
-        //    Repo.GetAllActivitiesForCurrentUser(UserName);
-        //    return Context.Activities.Where(activity => activity.Sum(NumberHours));
-        //}
+        public int calculateYTDNumberHours(string UserName)
+        {
+        
+            var AllActivities =  this.GetAllActivitiesForCurrentUser(UserName);
+            //give activities within set date range or whatever  IEnumerable List
+            return AllActivities.Sum(activity => activity.NumberHours); //this gets all hours for all dates
+        }
 
         public VolunteerUser GetUserByUserName(string UserName)
         {

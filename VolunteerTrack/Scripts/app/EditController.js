@@ -13,7 +13,19 @@ app.controller('EditController', function ($scope, $location, $http) {
        });
 
     $scope.EditActivity = function (ActivityId) {
-
+        console.log("editFunction kicked off by EditController");
         $location.path("/EditActivityPage/" + ActivityId)
+    }
+    $scope.RemoveActivity = function (ActivityId) {
+        console.log("Remove function kicked off in EditController");
+        $http({
+            url: '/api/Activities/' + ActivityId,
+            method: "Delete"
+        })
+        .then(function (result) {
+            console.log(result);
+        }, function (error) {
+
+        });
     }
 });
