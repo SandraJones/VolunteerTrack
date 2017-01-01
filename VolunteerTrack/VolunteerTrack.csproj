@@ -208,6 +208,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CalculationsViewModel.cs" />
     <Compile Include="Models\CharitableOrganization.cs" />
     <Compile Include="Models\CharityFocus.cs" />
     <Compile Include="Models\IdentityModels.cs" />

@@ -24,14 +24,24 @@ namespace VolunteerTrack.Controllers
         }
 
         //GET api/<controller>
-        public int Get(string UserName)
+        //[Route("api/Activities/{UserName}")]
+        //public int Get(string UserName)
+        //{
+        //    var currentUser = User.Identity.Name;
+        //    var totalHours = repo.GetAllActivitiesForCurrentUser(currentUser).Select(NumberHours).sum().where(Date ;
+
+
+       // [Route("api/Activities/{UserName}")]
+        public CalculationsViewModel Get(string UserName)
         {
             var currentUser = User.Identity.Name;
             repo.GetAllActivitiesForCurrentUser(currentUser);
-            var totalHours = repo.GetAllActivitiesForCurrentUser.SqlQuery("SELECT * FROM dbo.Blogs").ToList();
-            return totalHours;
-            //return repo.calculateYTDMileage(UserName);
-            //return repo.calculateYTDDollarsContributed(UserName);
+            var calcVM = new CalculationsViewModel();
+            calcVM.totalHours = repo.calculateYTDNumberHours(UserName);
+            calcVM.totalMileage = repo.calculateYTDMileage(UserName);
+            calcVM.totalDollars = repo.calculateYTDDollarsContributed(UserName);
+            return calcVM;
+            //  return calcVM.where(Date is between January 1st of current year and Date.Now);
         }
 
         // GET api/<controller>
