@@ -126,8 +126,6 @@ namespace VolunteerTrack.Tests.DAL
             //mock_context.Setup(c => c.Users).Returns(mock_users);
 
             //need to mock all models 
-            //mock focus
-            //mock organizations
         }
 
         //do this feature all the way thru, test, method, and angular then go on to next
@@ -170,7 +168,7 @@ namespace VolunteerTrack.Tests.DAL
                 DollarsContributed = 100
             };
             Repo.AddActivity(a_activity);
-            Repo.RemoveActivity(a_activity);
+            Repo.RemoveActivity(a_activity.ActivityId);
             int expected_activities = 2;
             int actual_activities = Repo.Context.Activities.Count();
             //Assert
@@ -223,8 +221,58 @@ namespace VolunteerTrack.Tests.DAL
             // Act
             bool exists = Repo.UsernameExists("susanm"); 
 
+
             // Assert 
             Assert.IsTrue(exists);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public int calculateNumberHours(string UserName)
+        {
+
+            var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);
+            //give activities within set date range or whatever  IEnumerable List
+            return AllActivities.Sum(activity => activity.NumberHours); //this gets all hours for all dates
+        }
+
+
+
+
+
+
+        [TestMethod]
+        public void EnsureCanCalculateNumberHours()
+        {
+            //Arrange
+            var currentUser = "susanm";
+            var totalActivities = this.GetAllActivitiesForCurrentUser("susanm");
+
+            //Act
+            
+            //Assert
+
+        }
+        
     }
 }

@@ -66,7 +66,7 @@ namespace VolunteerTrack.DAL
             return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
         }
 
-        public int calculateYTDNumberHours(string UserName)
+        public int calculateNumberHours(string UserName)
         {
         
             var AllActivities =  this.GetAllActivitiesForCurrentUser(UserName);

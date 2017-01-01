@@ -9,7 +9,7 @@ setInterval(function () {
       .fadeIn(1000)
       .end()
       .appendTo('#slideshow');
-}, 20000);
+}, 15000);
 
 
 app.config(function ($routeProvider) {
@@ -33,6 +33,8 @@ app.controller('ActivitiesController', function ($scope, $http) {
             data: $scope.Activity
         })
         .then(function (result) {
+           
+
             //call toast msg
             //  $scope.Activity = angular.copy(result.data);
             $scope.Activity = {};
@@ -48,8 +50,9 @@ app.controller('ActivitiesController', function ($scope, $http) {
             method: "GET"
         })
         .then(function (result) {
-            $scope.activities = result.data;
-            $scope.activities.data.TotalYTD();
+            console.log(result);
+            var currentYearActivities = $scope.filter(currentUserActivities.date | 2016);
+            $scope.currentYearActivities.NumberHours;
 
         }, function (error) {
             console.log(error);
