@@ -49,8 +49,9 @@ app.controller('ActivitiesController', function ($scope, $http) {
         })
         .then(function (result) {
             console.log(result);
-           // var currentYearActivities = $scope.filter(calcVM.date | 2016);
             $scope.calcVM;
+            var currentYearActivities = $scope.filter(calcVM.date | 2016);
+            $scope.currentYearActivities;
 
         }, function (error) {
             console.log(error);

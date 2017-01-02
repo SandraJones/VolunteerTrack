@@ -70,9 +70,7 @@ namespace VolunteerTrack.DAL
         {
         
             var AllActivities =  this.GetAllActivitiesForCurrentUser(UserName);
-           
-            var totalHours = AllActivities.Sum(activity => activity.NumberHours);
-            
+            var totalHours = AllActivities.Sum(activity => activity.NumberHours);          
             return totalHours;//this gets all hours for all dates
         }
         public int calculateYTDMileage(string UserName)
