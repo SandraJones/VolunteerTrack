@@ -70,11 +70,9 @@ namespace VolunteerTrack.DAL
         {
         
             var AllActivities =  this.GetAllActivitiesForCurrentUser(UserName);
-            //give activities within set date range or whatever  IEnumerable List
+           
             var totalHours = AllActivities.Sum(activity => activity.NumberHours);
-            //select stmt: select NumberHours,SUM(NumberHours) from VolunteerActivities, GROUPBY YEAR(Date);
-            //select sum(numberHours) from VolunteerActivities where ('UserName' == 'UserName') AND YEAR(Date == 2016); 
-
+            
             return totalHours;//this gets all hours for all dates
         }
         public int calculateYTDMileage(string UserName)

@@ -65,20 +65,23 @@ namespace VolunteerTrack.Tests.DAL
                 }
 
             };
-           //mock activities created to test the methods for adding, etc. to DB
-            activities = new List<VolunteerActivity>
+            //mock activities created to test the methods for adding, etc. to DB
+            mock_activities = new List<VolunteerActivity>
             {
                 new VolunteerActivity
                 {
+                    mock_app_users = "susanm",
                     ActivityId = 3,
                     OrgName = "The Nashville Rescue Mission",
                     Date = DateTime.Now,
                     NumberHours = 8,
                     Mileage = 11,
                     DollarsContributed = 20
+                    
                 },
                 new VolunteerActivity
                 {
+                    mock_app_users = "fredj",
                     ActivityId = 5,
                     OrgName = "Second Harvest",
                     Date = DateTime.Now,
@@ -226,52 +229,24 @@ namespace VolunteerTrack.Tests.DAL
             Assert.IsTrue(exists);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public int calculateNumberHours(string UserName)
-        {
-
-            var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);
-            //give activities within set date range or whatever  IEnumerable List
-            return AllActivities.Sum(activity => activity.NumberHours); //this gets all hours for all dates
-        }
-
-
-
-
-
+            //public int calculateNumberHours(string UserName)
+            //{
+            //    var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);      
+            //    return AllActivities.Sum(activity => activity.NumberHours); 
+            //}
 
         [TestMethod]
         public void EnsureCanCalculateNumberHours()
         {
             //Arrange
-            var currentUser = "susanm";
-            var totalActivities = this.GetAllActivitiesForCurrentUser("susanm");
-
+            var currentUser = "susanm"; //this is a mock user
+            var AllActivities = Repo.GetAllActivitiesForCurrentUser(currentUser);
             //Act
-            
+            var totalHours = AllActivities.Sum(activity => activity.NumberHours);
+            var actualValue = totalHours;
+            var expectedValue = 10;
             //Assert
-
+            Assert.IsTrue(expectedValue == actualValue);
         }
         
     }
