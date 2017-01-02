@@ -32,66 +32,29 @@ app.controller('ActivitiesController', function ($scope, $http) {
             method: "POST",
             data: $scope.Activity
         })
-        .then(function (result) {
-           
-
+        .then(function (result) {     
             //call toast msg
-            //  $scope.Activity = angular.copy(result.data);
             $scope.Activity = {};
         }, function (error) {
             //poss call an error toast msg
             console.log(error);
         });
     };
-    //display YTD calculation for NumberHours
-    $scope.calculateYTDNumberHours = function () {
+
+    //display YTD calculations 
+    $scope.calcVM = function (UserName) {
         $http({
-            url: '/api/Activities/',
+            url: '/api/Activities/' + UserName,
             method: "GET"
         })
         .then(function (result) {
             console.log(result);
-            var currentYearActivities = $scope.filter(currentUserActivities.date | 2016);
-            $scope.currentYearActivities.NumberHours;
+           // var currentYearActivities = $scope.filter(calcVM.date | 2016);
+            $scope.calcVM;
 
         }, function (error) {
             console.log(error);
         });
     };
-    //display YTD calculation for Mileage
-    $scope.calculateYTDMileage = function () {
-        $http({
-            url: '/api/Activities/',
-            method: "GET"
-        })
-        .then(function (result) {
-            $scope.activities = result.data;
-            $scope.activities.data.TotalYTD();
-
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    //display YTD calculation for DollarsContributed
-    $scope.calculateYTDDollarsContributed = function () {
-        $http({
-            url: '/api/Activities/',
-            method: "GET"
-        })
-        .then(function (result) {
-            $scope.activities = result.data;
-            $scope.activities.data.TotalYTD();
-
-        }, function (error) {
-            console.log(error);
-        });
-    };
-
-
-
-
-
-
-
-
-});//this line is the closing of the app.controller statement;
+   
+});

@@ -23,15 +23,6 @@ namespace VolunteerTrack.Controllers
             return currentUserActivities;       
         }
 
-        //GET api/<controller>
-        //[Route("api/Activities/{UserName}")]
-        //public int Get(string UserName)
-        //{
-        //    var currentUser = User.Identity.Name;
-        //    var totalHours = repo.GetAllActivitiesForCurrentUser(currentUser).Select(NumberHours).sum().where(Date ;
-
-
-       // [Route("api/Activities/{UserName}")]
         public CalculationsViewModel Get(string UserName)
         {
             var currentUser = User.Identity.Name;
@@ -41,7 +32,6 @@ namespace VolunteerTrack.Controllers
             calcVM.totalMileage = repo.calculateYTDMileage(UserName);
             calcVM.totalDollars = repo.calculateYTDDollarsContributed(UserName);
             return calcVM;
-            //  return calcVM.where(Date is between January 1st of current year and Date.Now);
         }
 
         // GET api/<controller>
