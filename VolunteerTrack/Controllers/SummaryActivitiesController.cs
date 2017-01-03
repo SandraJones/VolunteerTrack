@@ -14,21 +14,15 @@ namespace VolunteerTrack.Controllers
     {
         VolunteerRepository repo = new VolunteerRepository();
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET api/<controller>/
-        public CalculationsViewModel Get(string UserName)
+        public CalculationsViewModel Get(string id)
         {
             var currentUser = User.Identity.Name;
             repo.GetAllActivitiesForCurrentUser(currentUser);
             var calcVM = new CalculationsViewModel();
-            calcVM.totalHours = repo.calculateYTDNumberHours(UserName);
-            calcVM.totalMileage = repo.calculateYTDMileage(UserName);
-            calcVM.totalDollars = repo.calculateYTDDollarsContributed(UserName);
+            calcVM.totalHours = repo.calculateYTDNumberHours(id);
+            calcVM.totalMileage = repo.calculateYTDMileage(id);
+            calcVM.totalDollars = repo.calculateYTDDollarsContributed(id);
             return calcVM;   
         }
 
