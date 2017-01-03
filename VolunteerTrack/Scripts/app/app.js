@@ -42,29 +42,25 @@ app.controller('ActivitiesController', function ($scope, $http) {
         });
     };
     $scope.init = function () {
-        $scope.calcVM = function (UserName) {
+    };
+    $scope.init();
+    $scope.calcVM = function (UserName) {
+        console.log("kicked off calcVM function");
+        $http({
+            url: '/api/SummaryActivities/' + UserName,
+            method: "GET",
+            data: $scope.calcVM       
+        })
+        .then(function (result) {
+            console.log(result);
+            $scope.calcVM.toalHours = result.data.totalHours;
+            $scope.calcVM.toalMileage = result.data.totalMileage;
+            $scope.calcVM.toalDollars = result.data.totalDollars;
+            //var currentYearActivities = $scope.filter(calcVM.date | 2016);
+            //$scope.currentYearActivities;
+        }, function (error) {
+            console.log(error)
+        });
 
-            //create a new backend ActivitiesSummary controller, add routing here as a function
-            //and then do similar coding with line 57 three times;
-            //display YTD calculations on pageload
-
-            console.log("kicked off calcVM function");
-            $http({
-                url: '/api/SummaryActivities/' + UserName,
-                method: "GET",
-                data: $scope.calcVM
-            })
-            .then(function (result) {
-                console.log(result);
-                $scope.calcVM.toalHours = result.data.totalHours;
-                $scope.calcVM.toalHours = result.data.totalMileage;
-                $scope.calcVM.toalHours = result.data.totalDollars;
-                //var currentYearActivities = $scope.filter(calcVM.date | 2016);
-                //$scope.currentYearActivities;
-            }, function (error) {
-                console.log(error);
-            });
-
-        };
-    }
+    };
 });

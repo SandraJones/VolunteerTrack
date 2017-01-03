@@ -29,8 +29,7 @@ namespace VolunteerTrack.Controllers
             calcVM.totalHours = repo.calculateYTDNumberHours(UserName);
             calcVM.totalMileage = repo.calculateYTDMileage(UserName);
             calcVM.totalDollars = repo.calculateYTDDollarsContributed(UserName);
-            return calcVM;
-            
+            return calcVM;   
         }
 
         // POST api/<controller>
