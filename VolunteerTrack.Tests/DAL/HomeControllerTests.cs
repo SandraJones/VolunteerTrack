@@ -21,13 +21,13 @@ namespace VolunteerTrack.Tests.DAL
             Assert.IsNotNull(result);
         }
         [TestMethod]
-        public void About()
+        public void InputActivity()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.InputActivity() as ViewResult;
 
             // Assert
             Assert.AreEqual("Enter your activity information here.", result.ViewBag.Message);
