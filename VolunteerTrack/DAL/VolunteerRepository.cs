@@ -66,23 +66,23 @@ namespace VolunteerTrack.DAL
             return Context.Activities.Where(activity => activity.VolunteerUser.BaseUser.UserName == UserName).ToList();
         }
 
-        public int calculateYTDNumberHours(string UserName)
-        {
-        
-            var AllActivities =  this.GetAllActivitiesForCurrentUser(UserName);
+        public int calculateYTDNumberHours(string id)
+        {      
+            var AllActivities =  this.GetAllActivitiesForCurrentUser(id);
             var totalHours = AllActivities.Sum(activity => activity.NumberHours);          
             return totalHours;//this gets all hours for all dates
         }
-        public int calculateYTDMileage(string UserName)
+
+        public int calculateYTDMileage(string id)
         {
-            var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);
+            var AllActivities = this.GetAllActivitiesForCurrentUser(id);
             var totalMileage = AllActivities.Sum(activity => activity.Mileage); //this gets all mileage for all dates
             return totalMileage;
         }
 
-        public int calculateYTDDollarsContributed(string UserName)
+        public int calculateYTDDollarsContributed(string id)
         {
-            var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);
+            var AllActivities = this.GetAllActivitiesForCurrentUser(id);
             var totalDollars = AllActivities.Sum(activity => activity.DollarsContributed); //this gets all money contributed to all charities for all dates
             return totalDollars;
         }
