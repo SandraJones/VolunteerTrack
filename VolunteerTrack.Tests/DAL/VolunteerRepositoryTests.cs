@@ -187,7 +187,7 @@ namespace VolunteerTrack.Tests.DAL
             //Arrange
             ConnectToDatastore();
             //Act
-            Repo.Context.Activities.GetActivityById();
+            Repo.GetActivityById(activity_Id);
             //Assert
             Assert.AreEqual();   
         }
