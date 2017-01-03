@@ -70,21 +70,21 @@ namespace VolunteerTrack.DAL
         {
         
             var AllActivities =  this.GetAllActivitiesForCurrentUser(UserName);
-            //give activities within set date range or whatever  IEnumerable List
-            return AllActivities.Sum(activity => activity.NumberHours); //this gets all hours for all dates
+            var totalHours = AllActivities.Sum(activity => activity.NumberHours);          
+            return totalHours;//this gets all hours for all dates
         }
         public int calculateYTDMileage(string UserName)
         {
             var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);
-            //give activities within set date range or whatever  IEnumerable List
-            return AllActivities.Sum(activity => activity.Mileage); //this gets all mileage for all dates
+            var totalMileage = AllActivities.Sum(activity => activity.Mileage); //this gets all mileage for all dates
+            return totalMileage;
         }
 
         public int calculateYTDDollarsContributed(string UserName)
         {
             var AllActivities = this.GetAllActivitiesForCurrentUser(UserName);
-            //give activities within set date range or whatever  IEnumerable List
-            return AllActivities.Sum(activity => activity.DollarsContributed); //this gets all money contributed to all charities for all dates
+            var totalDollars = AllActivities.Sum(activity => activity.DollarsContributed); //this gets all money contributed to all charities for all dates
+            return totalDollars;
         }
 
         public VolunteerUser GetUserByUserName(string UserName)

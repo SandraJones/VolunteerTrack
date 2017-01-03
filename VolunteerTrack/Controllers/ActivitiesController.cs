@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Net;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using VolunteerTrack.DAL;
@@ -18,9 +19,10 @@ namespace VolunteerTrack.Controllers
         {
             var currentUser = User.Identity.Name;
             //need this for list of acti for speci users
-           return repo.GetAllActivitiesForCurrentUser(currentUser);         
+            var currentUserActivities = repo.GetAllActivitiesForCurrentUser(currentUser);
+            return currentUserActivities;       
         }
-
+        
         // GET api/<controller>
         public VolunteerActivity Get(int id)
         {
@@ -34,6 +36,7 @@ namespace VolunteerTrack.Controllers
             activity.VolunteerUser = currentUser;
             repo.AddActivity(activity);
         }
+
         // PUT api/<controller>
         public void Put(int Id, [FromBody]VolunteerActivity value)
         {

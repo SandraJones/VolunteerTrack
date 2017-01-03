@@ -67,6 +67,8 @@ table {
     align-content: center;
     font-size: large;
     position: center;
+    margin-left: 10%;
+
 }
 .centerTitle {
     text-align: center;
@@ -77,3 +79,4 @@ p {
 .center {
     text-align: center;
 }
+

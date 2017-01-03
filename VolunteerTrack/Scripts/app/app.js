@@ -9,7 +9,7 @@ setInterval(function () {
       .fadeIn(1000)
       .end()
       .appendTo('#slideshow');
-}, 20000);
+}, 15000);
 
 
 app.config(function ($routeProvider) {
@@ -26,6 +26,7 @@ app.config(function ($routeProvider) {
 
 
 app.controller('ActivitiesController', function ($scope, $http) {
+    $scope.calcVM = {};
     $scope.saveActivity = function () {
         $http({
             url: '/api/Activities/',
@@ -34,61 +35,32 @@ app.controller('ActivitiesController', function ($scope, $http) {
         })
         .then(function (result) {
             //call toast msg
-            //  $scope.Activity = angular.copy(result.data);
             $scope.Activity = {};
         }, function (error) {
             //poss call an error toast msg
             console.log(error);
         });
     };
-    //display YTD calculation for NumberHours
-    $scope.calculateYTDNumberHours = function () {
+    $scope.init = function () {
+    };
+    $scope.init();
+    $scope.calcVM = function (UserName) {
+        console.log("kicked off calcVM function");
         $http({
-            url: '/api/Activities/',
-            method: "GET"
+            url: '/api/SummaryActivities/' + UserName,
+            method: "GET",
+            data: $scope.calcVM       
         })
         .then(function (result) {
-            $scope.activities = result.data;
-            $scope.activities.data.TotalYTD();
-
+            console.log(result);
+            $scope.calcVM.toalHours = result.data.totalHours;
+            $scope.calcVM.toalMileage = result.data.totalMileage;
+            $scope.calcVM.toalDollars = result.data.totalDollars;
+            //var currentYearActivities = $scope.filter(calcVM.date | 2016);
+            //$scope.currentYearActivities;
         }, function (error) {
-            console.log(error);
+            console.log(error)
         });
+
     };
-    //display YTD calculation for Mileage
-    $scope.calculateYTDMileage = function () {
-        $http({
-            url: '/api/Activities/',
-            method: "GET"
-        })
-        .then(function (result) {
-            $scope.activities = result.data;
-            $scope.activities.data.TotalYTD();
-
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    //display YTD calculation for DollarsContributed
-    $scope.calculateYTDDollarsContributed = function () {
-        $http({
-            url: '/api/Activities/',
-            method: "GET"
-        })
-        .then(function (result) {
-            $scope.activities = result.data;
-            $scope.activities.data.TotalYTD();
-
-        }, function (error) {
-            console.log(error);
-        });
-    };
-
-
-
-
-
-
-
-
-});//this line is the closing of the app.controller statement;
+});
