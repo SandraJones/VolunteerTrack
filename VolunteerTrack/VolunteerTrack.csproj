@@ -193,6 +193,7 @@
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SummaryActivitiesController.cs" />
     <Compile Include="DAL\VolunteerContext.cs" />
     <Compile Include="DAL\VolunteerRepository.cs" />
     <Compile Include="Global.asax.cs">

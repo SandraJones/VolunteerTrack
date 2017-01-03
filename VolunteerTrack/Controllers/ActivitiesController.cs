@@ -22,18 +22,7 @@ namespace VolunteerTrack.Controllers
             var currentUserActivities = repo.GetAllActivitiesForCurrentUser(currentUser);
             return currentUserActivities;       
         }
-
-        public CalculationsViewModel Get(string UserName)
-        {
-            var currentUser = User.Identity.Name;
-            repo.GetAllActivitiesForCurrentUser(currentUser);
-            var calcVM = new CalculationsViewModel();
-            calcVM.totalHours = repo.calculateYTDNumberHours(UserName);
-            calcVM.totalMileage = repo.calculateYTDMileage(UserName);
-            calcVM.totalDollars = repo.calculateYTDDollarsContributed(UserName);
-            return calcVM;
-        }
-
+        
         // GET api/<controller>
         public VolunteerActivity Get(int id)
         {
