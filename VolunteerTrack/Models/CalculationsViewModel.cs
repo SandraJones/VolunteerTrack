@@ -11,5 +11,7 @@ namespace VolunteerTrack.Models
         public int totalHours { get; set; }
         public int totalMileage { get; set; }
         public int totalDollars { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }
