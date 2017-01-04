@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SummaryActivitiesController.cs" />
     <Compile Include="DAL\VolunteerContext.cs" />
+    <Compile Include="DAL\VolunteerDataService.cs" />
     <Compile Include="DAL\VolunteerRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

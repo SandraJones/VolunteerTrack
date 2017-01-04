@@ -45,7 +45,7 @@ app.controller('ActivitiesController', function ($scope, $http) {
     $scope.init = function (UserName) {
         console.log("kicked off calcVM function");
         $http({
-            url: '/api/SummaryActivities/' + UserName,
+            url: '/api/SummaryActivities/',  
             method: "GET", 
             data: $scope.calcVM       
         })
@@ -59,5 +59,6 @@ app.controller('ActivitiesController', function ($scope, $http) {
         }, function (error) {
             console.log(error)
         });
+
     };  
 });
