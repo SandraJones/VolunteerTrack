@@ -42,20 +42,18 @@ app.controller('ActivitiesController', function ($scope, $http) {
         });
     };
 
-    $scope.init = function (UserName) {
+    $scope.init = function () {
         console.log("kicked off calcVM function");
         $http({
             url: '/api/SummaryActivities/',  
-            method: "GET", 
-            data: $scope.calcVM       
+            method: "GET"     
         })
         .then(function (result) {
             console.log(result);
             $scope.calcVM.totalHours = result.data.totalHours;
             $scope.calcVM.totalMileage = result.data.totalMileage;
             $scope.calcVM.totalDollars = result.data.totalDollars;
-            //var currentYearActivities = $scope.filter(calcVM.date | 2016);
-            //$scope.currentYearActivities;
+            
         }, function (error) {
             console.log(error)
         });
