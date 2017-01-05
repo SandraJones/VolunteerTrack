@@ -1,5 +1,7 @@
 ﻿var app = angular.module("Tracker", ["ngRoute"]);
 
+
+//Home Page Slideshow Code
 $("#slideshow > div:gt(0)").hide();
 
 setInterval(function () {
@@ -9,9 +11,9 @@ setInterval(function () {
       .fadeIn(1000)
       .end()
       .appendTo('#slideshow');
-}, 15000);
+}, 13000);
 
-
+//Angular Routing
 app.config(function ($routeProvider) {
     $routeProvider.
         when('/EditActivityPage/:activityId', {
@@ -24,7 +26,7 @@ app.config(function ($routeProvider) {
         } );
 });
 
-
+//This controller saves the input from the user for a specific activity.
 app.controller('ActivitiesController', function ($scope, $http) {
     $scope.calcVM = {};
     $scope.saveActivity = function () {
@@ -41,7 +43,7 @@ app.controller('ActivitiesController', function ($scope, $http) {
             console.log(error);
         });
     };
-
+    //GET Calculations from Backend Controller on page load.
     $scope.init = function () {
         console.log("kicked off calcVM function");
         $http({

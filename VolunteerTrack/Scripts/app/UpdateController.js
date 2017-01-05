@@ -25,11 +25,4 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
             //poss call an error toast msg
         });
     };
-
-    //Refactor controllers to this syntax:
-//    angular.module('myApp', [])
-//.controller('MyController', ['myService', function (myService) {
-//    // Do something with myService
-//}]);
-
 });
