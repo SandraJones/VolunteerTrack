@@ -78,5 +78,9 @@ p {
 }
 .center {
     text-align: center;
+    align-content: center;
 }
-
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}

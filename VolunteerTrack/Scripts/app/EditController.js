@@ -1,6 +1,6 @@
 ﻿angular.module("Tracker");
 
-app.controller('EditController', function ($scope, $location, $http) {
+app.controller('EditController', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     //This controller acts upon the click of the nav tab, "MyActivities" to return a list of current user's activities.
 
     $http({
@@ -28,4 +28,4 @@ app.controller('EditController', function ($scope, $location, $http) {
 
         });
     }
-});
+}]);

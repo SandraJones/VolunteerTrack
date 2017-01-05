@@ -1,5 +1,5 @@
 ﻿"use strict";
-app.controller('UpdateController', function ($scope, $routeParams, $location, $http) {
+app.controller('UpdateController', ['$scope', '$routeParams', '$location', '$http', function ($scope, $routeParams, $location, $http) {
     //This controller gets the specific Activity that user wants to edit AND
     console.log("UpdateController get activity that user wants to edit");
     $http({
@@ -25,4 +25,4 @@ app.controller('UpdateController', function ($scope, $routeParams, $location, $h
             //poss call an error toast msg
         });
     };
-});
+}]);

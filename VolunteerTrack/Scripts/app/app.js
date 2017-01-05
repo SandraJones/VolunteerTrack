@@ -14,7 +14,7 @@ setInterval(function () {
 }, 13000);
 
 //Angular Routing
-app.config(function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/EditActivityPage/:activityId', {
             templateUrl: '/Partials/UpdateView.html',
@@ -24,10 +24,10 @@ app.config(function ($routeProvider) {
             templateUrl: '/partials/ListOfActivities.html',
             controller: 'EditController'
         } );
-});
+}]);
 
 //This controller saves the input from the user for a specific activity.
-app.controller('ActivitiesController', function ($scope, $http) {
+app.controller('ActivitiesController', ['$scope', '$http', function ($scope, $http) {
     $scope.calcVM = {};
     $scope.saveActivity = function () {
         $http({
@@ -61,4 +61,4 @@ app.controller('ActivitiesController', function ($scope, $http) {
         });
 
     };  
-});
+}]);

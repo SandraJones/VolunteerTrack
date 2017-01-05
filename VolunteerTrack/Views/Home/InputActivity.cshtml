@@ -1,48 +1,49 @@
 ﻿@{
-    ViewData["Title"] = "Track each activity here";
+    ViewData["Title"] = "Track each activity here in the format shown below";
 }
 <h2 class="centerTitle">@ViewData["Title"].</h2>
 
-
-<div>
-    <div class="options" ng-controller="ActivitiesController">
-        <form name="form.InputActivity">
-            <fieldset>
-                <p>
-                    <label>Name of Organization</label>
-                    <input type="text" ng-model="Activity.OrgName" class="field" required pat`tern="[a-zA-Z0-9]+" />
-                </p>
-                <p>
-                    <label>Number of Hours</label>
-                    <input type="text" ng-model="Activity.NumberHours" class="field" required pattern="[a-zA-Z0-9]+" />
-                </p>
-                <p>
-                    <label>Miles Driven Round Trip</label>
-                    <input type="text" ng-model="Activity.Mileage" class="field" required pattern="[a-zA-Z0-9]+" />
-                </p>
-                <p>
-                    <label>Monetary Donation</label>
-                    <input type="text" ng-model="Activity.DollarsContributed" class="field" required pattern="[a-zA-Z0-9]+" />
-                </p>
-                <p>
-                    <label>Date</label>
-                    <input type="text" ng-model="Activity.Date" class="field" required />
-                </p>
-                <button type="submit" ng-click="saveActivity()">SUBMIT</button>
-                <br />
-                <br />
-                <br />
-                <p data-ng-init="init()"><label>Total hours volunteered this year: {{calcVM.totalHours}} hours</label></p>
-                <p><label>Total mileage for the year: {{calcVM.totalMileage}} miles</label></p>
-                <p><label>Total monetary contributions for the year:  ${{calcVM.totalDollars}}</label></p>
-            </fieldset>
-        </form>
+<div class="center">
+    <div>
+        <div class="options" ng-controller="ActivitiesController">
+            <form name="form.InputActivity">
+                <fieldset>
+                    <p>
+                        <label>Name of Organization</label>
+                        <input type="text" placeholder="SecondHarvest" ng-model="Activity.OrgName" class="field" required pat`tern="[a-zA-Z0-9]+" />
+                    </p>
+                    <p>
+                        <label>Number of Hours</label>
+                        <input type="text" placeholder="8" ng-model="Activity.NumberHours" class="field" required pattern="[a-zA-Z0-9]+" />
+                    </p>
+                    <p>
+                        <label>Miles Driven Round Trip</label>
+                        <input type="text" placeholder="12" ng-model="Activity.Mileage" class="field" required pattern="[a-zA-Z0-9]+" />
+                    </p>
+                    <p>
+                        <label>Monetary Donation</label>
+                        <input type="text" placeholder= "50" ng-model="Activity.DollarsContributed" class="field" required pattern="[a-zA-Z0-9]+" />
+                    </p>
+                    <p>
+                        <label>Date</label>
+                        <input type="text" placeholder="05/11/2017" ng-model="Activity.Date" class="field" required />
+                    </p>
+                    <button type="submit" ng-click="saveActivity()">SUBMIT</button>
+                    <br />
+                    <br />
+                    <br />
+                    <p data-ng-init="init()"><label>Total hours volunteered this year: {{calcVM.totalHours}} hours</label></p>
+                    <p><label>Total mileage for the year: {{calcVM.totalMileage}} miles</label></p>
+                    <p><label>Total monetary contributions for the year:  ${{calcVM.totalDollars}}</label></p>
+                </fieldset>
+            </form>
+        </div>
     </div>
-</div>
-<div>
-    <img src="~/Content/Photos/zooRevisedIMG_0992.jpg" />
-    <p>
-        Consider volunteering at the zoo.
-        <a class="btn btn-default" href="https://www.nashvillezoo.org/volunteer-at-the-zoo">Learn More</a>
-    </p>
+    <div>
+        <img src="~/Content/Photos/zooRevisedIMG_0992.jpg" />
+        <p>
+            Consider volunteering at the zoo.
+            <a class="btn btn-default" href="https://www.nashvillezoo.org/volunteer-at-the-zoo">Learn More</a>
+        </p>
+    </div>
 </div>
