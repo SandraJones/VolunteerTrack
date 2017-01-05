@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<h1>This map shows just a few of the locations of volunteer opportunities in Middle Tennessee.</h1>
+<h2>This map shows just a few of the locations of volunteer opportunities in Middle Tennessee.  Additional opportunities may exist in your neighborhood public school, or in churches, temples, synagogues, or mosques near you.</h2>
 
 <div id="slideshow">
     <div>
@@ -62,7 +62,7 @@
         #map {
             width: 100%;
             margin-top: 10%;
-            height: 400px;
+            height: 600px;
             align-content: center;
             background-color: grey;
         }
@@ -137,35 +137,35 @@
             map: map
         });
         marker1.addListener('click', function () {
-            alert('NashvilleRescueMission');
+            alert('NashvilleRescueMission, 639 Lafayette Street, Nashville, TN 37203-4226, 615-312-1544');
         });
         marker2.addListener('click', function () {
-            alert('BoyScoutsOfAmerica');
+            alert('BoyScoutsOfAmerica, 3414 Hillsboro Pike, Nashville, TN 37215, (615) 383-0753');
         });
         marker3.addListener('click', function () {
-            alert('OasisCenter');
+            alert('OasisCenter, 1704 Charlotte Ave, Nashville, TN 37203, (615) 327-4455');
             //infowindow find under googlemapapi infowindow; call goes here to open the window;alert("listener works");
         });
         marker4.addListener('click', function () {
-            alert('LongHunterStatePark');
+            alert('LongHunterStatePark, 2910 Hobson Pike, Hermitage, TN 37076, (615) 885-2422');
         });
         marker5.addListener('click', function () {
-            alert('RadnorStatePark');
+            alert('RadnorStatePark, 1160 Otter Creek Road, Nashville, Tennessee 37220, 615-373-3467');
         });
         marker6.addListener('click', function () {
-            alert('MonroeCarellChildrenHospital');
+            alert('MonroeCarellChildrenHospital,  2200 Childrens Way, Nashville, TN 37232  (615) 322-2379');
         });
         marker7.addListener('click', function () {
-            alert(' TennesseeSchoolForTheBlind');
+            alert(' TennesseeSchoolForTheBlind, 115 Stewarts Ferry Pike, Nashville, TN 37214, (615) 231-7307');
         });
         marker8.addListener('click', function () {
-            alert('PercyWarnerPark');
+            alert('PercyWarnerPark, Nashville, TN, 37221, (615) 352-6299');
         });
         marker9.addListener('click', function () {
-            alert('NashvilleHumaneAssociation');
+            alert('NashvilleHumaneAssociation, 213 Oceola Ave, Nashville, TN 37209, (615) 352-1010');
         });
         marker10.addListener('click', function () {
-            alert('TheFranklinTheatre');
+            alert('TheFranklinTheatre, 419 Main St, Franklin, TN 37064, (615) 538-2075');
         });
     }
 </script>
