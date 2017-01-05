@@ -195,7 +195,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SummaryActivitiesController.cs" />
     <Compile Include="DAL\VolunteerContext.cs" />
-    <Compile Include="DAL\VolunteerDataService.cs" />
     <Compile Include="DAL\VolunteerRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +240,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <None Include="Properties\PublishProfiles\VolunteerTrack20170104065721 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
