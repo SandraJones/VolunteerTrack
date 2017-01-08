@@ -7,12 +7,14 @@ app.controller('UpdateController', ['$scope', '$routeParams', '$location', '$htt
         method: "GET"
     })
     .then(function (response) {
+        console.log(response, "this is the response from the GET request of the UpdateController");
         $scope.Activity = response.data;
     }, function (error) {
     });
 
     //this part of the controller handles the Submit button click to save user changes.
     $scope.UpdateActivity = function () {
+        console.log("this is the update function within the UpdateController")
         $http({
             url: '/api/Activities/4',
             method: "PUT",

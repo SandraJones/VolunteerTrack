@@ -2,12 +2,13 @@
 
 app.controller('EditController', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     //This controller acts upon the click of the nav tab, "MyActivities" to return a list of current user's activities.
-
+    console.log("This EditController has kicked off!");
     $http({
         url: '/api/Activities/',
         method: "GET"
     })
        .then(function (result) {
+           console.log(result, "result of GET request inside the EditController");
            $scope.activities = result.data;
        }, function (error) {
        });
