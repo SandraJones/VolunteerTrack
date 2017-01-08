@@ -28,6 +28,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 //This controller saves the input from the user for a specific activity.
 app.controller('ActivitiesController', ['$scope', '$http', function ($scope, $http) {
+    console.log("this is the ActivitiesController POST  kicking off inside of the appjs file");
     $scope.calcVM = {};
     $scope.saveActivity = function () {
         $http({
@@ -51,7 +52,7 @@ app.controller('ActivitiesController', ['$scope', '$http', function ($scope, $ht
             method: "GET"     
         })
         .then(function (result) {
-            console.log(result);
+            console.log(result, "this is the result of the GET for the calculations in the ActivitiesController");
             $scope.calcVM.totalHours = result.data.totalHours;
             $scope.calcVM.totalMileage = result.data.totalMileage;
             $scope.calcVM.totalDollars = result.data.totalDollars;
