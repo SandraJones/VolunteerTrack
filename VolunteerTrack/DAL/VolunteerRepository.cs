@@ -21,11 +21,30 @@ namespace VolunteerTrack.DAL
             Context = _context;
         }
         
+        /*
+        This method adds a volunteer activity to the database. 
+        This is accomplished by the POST method in the C# 
+        ActivitiesController.
+        
+        Arguments:
+        Activity - the user inputs the activity on the InputActivity.cshtml page.
+        */
         public void AddActivity(VolunteerActivity _activity)
         {
             Context.Activities.Add(_activity);
             Context.SaveChanges();  
         }
+
+
+        /*
+        This method deletes a volunteer activity from the database. 
+        This is accomplished by the DELETE method in the C# 
+        ActivitiesController.
+        
+        Arguments:
+        ActivityId - the id of the activity that the user clicked the 
+        delete button for, while on the MyActivities page, Activities.cshtml.
+        */
         public void RemoveActivity(int _ActivityId)
         {   
             if(_ActivityId != 0) {
