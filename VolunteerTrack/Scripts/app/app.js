@@ -44,6 +44,7 @@ app.controller('ActivitiesController', ['$scope', '$http', function ($scope, $ht
             console.log(error);
         });
     };
+
     //GET Calculations from Backend Controller on page load.
     $scope.init = function () {
         console.log("kicked off calcVM function");

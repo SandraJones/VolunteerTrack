@@ -26,5 +26,6 @@ app.controller('UpdateController', ['$scope', '$routeParams', '$location', '$htt
         }, function (error) {
             //poss call an error toast msg
         });
+       
     };
 }]);
