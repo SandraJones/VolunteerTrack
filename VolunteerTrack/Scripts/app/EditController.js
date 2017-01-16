@@ -28,6 +28,6 @@ app.controller('EditController', ['$scope', '$location', '$http', function ($sco
         }, function (error) {
 
         });
+        window.location.reload(true);
     }
-    window.location.reload(true);
 }]);
