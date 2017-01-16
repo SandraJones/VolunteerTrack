@@ -24,7 +24,8 @@ namespace VolunteerTrack.Tests.DAL
         private List<VolunteerActivity> activities { get; set; }
         private List<CharitableOrganization> orgs { get; set; }
         private List<ApplicationUser> app_users { get; set; }
-       
+        public int activity_Id { get; private set; }
+
         [TestMethod]
         public void EnsureICanGetInstanceOfRepo()
         {
@@ -109,7 +110,7 @@ namespace VolunteerTrack.Tests.DAL
             mock_app_users.As<IQueryable<ApplicationUser>>().Setup(m => m.Expression).Returns(query_appUsers.Expression);
             mock_app_users.As<IQueryable<ApplicationUser>>().Setup(m => m.ElementType).Returns(query_appUsers.ElementType);
             mock_app_users.As<IQueryable<ApplicationUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_appUsers.GetEnumerator());
-            mock_context.Setup(c => c.Users).Returns(app_users);
+        //    mock_context.Setup(c => c.Users).Returns(app_users);
             mock_app_users.Setup(u => u.Add(It.IsAny<ApplicationUser>())).Callback((ApplicationUser a) => app_users.Add(a));
             mock_app_users.Setup(u => u.Remove(It.IsAny<ApplicationUser>())).Callback((ApplicationUser a) => app_users.Remove(a));
 
@@ -119,7 +120,7 @@ namespace VolunteerTrack.Tests.DAL
             mock_users.As<IQueryable<VolunteerUser>>().Setup(m => m.ElementType).Returns(query_volUsers.ElementType);
             //mock_users Setup
             mock_users.As<IQueryable<VolunteerUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_volUsers.GetEnumerator());
-            mock_users.Setup( f => f.Users).Returns(mock_users.Name); // Some list to contain fake users
+         //   mock_users.Setup( f => f.Users).Returns(mock_users.Name); // Some list to contain fake users
             mock_users.Setup(u => u.Add(It.IsAny<VolunteerUser>())).Callback((VolunteerUser v) => app_users.Add(v));
             mock_users.Setup(u => u.Remove(It.IsAny<VolunteerUser>())).Callback((VolunteerUser v) => app_users.Remove(v));
 
@@ -189,7 +190,7 @@ namespace VolunteerTrack.Tests.DAL
             //Act
             Repo.GetActivityById(activity_Id);
             //Assert
-            Assert.AreEqual();   
+            Assert.IsNotNull(activity_Id);   
         }
         [TestMethod]
         public void EnsureCanGetAllActivitiesForCurrentUser()

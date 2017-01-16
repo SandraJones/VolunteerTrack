@@ -158,7 +158,6 @@ namespace VolunteerTrack.DAL
             return totalDollars;
         }
 
-
         public VolunteerUser GetUserByUserName(string UserName)
         {
             return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();

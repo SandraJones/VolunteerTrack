@@ -25,7 +25,7 @@ app.controller('UpdateController', ['$scope', '$routeParams', '$location', '$htt
             $scope.Activity = {};
         }, function (error) {
             //poss call an error toast msg
-        });
-       
+        });     
     };
+    window.location.reload(true);
 }]);

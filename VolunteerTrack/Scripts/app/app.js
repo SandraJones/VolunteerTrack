@@ -43,6 +43,7 @@ app.controller('ActivitiesController', ['$scope', '$http', function ($scope, $ht
             //poss call an error toast msg
             console.log(error);
         });
+        window.location.reload(true);
     };
 
     //GET Calculations from Backend Controller on page load.

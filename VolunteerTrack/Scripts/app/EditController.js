@@ -29,4 +29,5 @@ app.controller('EditController', ['$scope', '$location', '$http', function ($sco
 
         });
     }
+    window.location.reload(true);
 }]);
