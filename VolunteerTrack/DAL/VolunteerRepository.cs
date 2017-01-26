@@ -22,6 +22,7 @@ namespace VolunteerTrack.DAL
         }
         
         /*
+        ADD ACTIVITY
         This method adds a volunteer activity to the database. 
         This is accomplished by the POST method in the C# 
         ActivitiesController.
@@ -37,6 +38,7 @@ namespace VolunteerTrack.DAL
 
 
         /*
+        REMOVE ACTIVITY
         This method deletes a volunteer activity from the database. 
         This is accomplished by the DELETE method in the C# 
         ActivitiesController.
@@ -56,6 +58,7 @@ namespace VolunteerTrack.DAL
         }
 
         /*
+        UPDATE ACTIVITY
         This method edits a volunteer activity from the database. 
         This is accomplished by the PUT method in the C# 
         ActivitiesController.
@@ -73,6 +76,7 @@ namespace VolunteerTrack.DAL
 
 
         /*
+        GET ONE ACTIVITY
         This method gets the activity by the activityId from the database. 
         The ActivitiesController GET method that takes an argument is the
         one used here.
@@ -113,6 +117,7 @@ namespace VolunteerTrack.DAL
         }
 
         /*
+        CALCULATION OF NUMBER OF HOURS
         This method calculates the total number of hours (the user has volunteered) from the database. 
         This is accomplished by the GET method in the C# SummaryActivitiesController.
         
@@ -129,6 +134,7 @@ namespace VolunteerTrack.DAL
         }
 
         /*
+        CALCULATION OF MILEAGE
         This method calculates the total mileage the user has entered into the database from the input form. 
         This is accomplished by the GET method in the C# SummaryActivitiesController.
         
@@ -144,6 +150,7 @@ namespace VolunteerTrack.DAL
         }
 
         /*
+        CALCULATION OF DOLLARSCONTRIBUTED
         This method calculates the total dollars contributed by the user. 
         This is accomplished by the GET method in the C# SummaryActivitiesController.
         
