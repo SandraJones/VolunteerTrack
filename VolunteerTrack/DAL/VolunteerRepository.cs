@@ -150,7 +150,7 @@ namespace VolunteerTrack.DAL
         }
 
         /*
-        CALCULATION OF DOLLARSCONTRIBUTED
+        CALCULATION OF DOLLARS CONTRIBUTED
         This method calculates the total dollars contributed by the user. 
         This is accomplished by the GET method in the C# SummaryActivitiesController.
         
@@ -165,12 +165,26 @@ namespace VolunteerTrack.DAL
             return totalDollars;
         }
 
+        /*
+      This method gets an activity from the database. 
+      This is accomplished by the GET method in the C# 
+      ActivitiesController that takes the argument, UserName.
+
+      Arguments:
+      UserName
+      */
+
         public VolunteerUser GetUserByUserName(string UserName)
         {
             return Context.VolunteerUsers.Where(v => v.BaseUser.UserName == UserName).FirstOrDefault();
         }
 
-
+        /*
+        This method is critical for build. Have to be able to create a 
+        VolunteerUser with UserName as argument. This was necessary to be able
+        to GetUserByUserName  (see above method).
+        Arguments: UserName
+        */
         public void CreateVolunteerUser(string UserName)
         {
             var user = GetAppUserByUserName(UserName);
@@ -179,13 +193,20 @@ namespace VolunteerTrack.DAL
             Context.VolunteerUsers.Add(VolUser);
             Context.SaveChanges();
         }
-
-
+        /*
+        This method gets the ApplicationUser so that 
+        we can search the database for a match with the 
+        UserName.
+        
+        Arguments: UserName
+        */
         public ApplicationUser GetAppUserByUserName(string UserName)
         {
             return Context.Users.FirstOrDefault(u => u.UserName == UserName);
         }
-
+        /*This method is a way to see if the UserName exists in the database.
+         Arguments: e
+         */
         public bool UsernameExists(string e)
         {
             VolunteerUser found_User = Context.VolunteerUsers.FirstOrDefault(s =>s.BaseUser.UserName.ToLower() == e.ToLower());

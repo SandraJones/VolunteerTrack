@@ -18,7 +18,7 @@ namespace VolunteerTrack.Controllers
         public List<VolunteerActivity> Get()
         {
             var currentUser = User.Identity.Name;
-            //need this for list of acti for speci users
+            //We need this for list of activities for specific users.
             var currentUserActivities = repo.GetAllActivitiesForCurrentUser(currentUser);
             return currentUserActivities;       
         }
