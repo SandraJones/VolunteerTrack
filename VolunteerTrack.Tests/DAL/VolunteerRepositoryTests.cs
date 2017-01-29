@@ -64,7 +64,7 @@ namespace VolunteerTrack.Tests.DAL
                 };
 
             };
-            //mock activities created to test the methods for adding, etc. to DB
+            //mock activities created to test the methods for adding, etc. to database
             mock_activities = new List<VolunteerActivity>
             {
                 new VolunteerActivity
@@ -121,9 +121,8 @@ namespace VolunteerTrack.Tests.DAL
             //mock_users Setup
             mock_users.As<IQueryable<VolunteerUser>>().Setup(m => m.GetEnumerator()).Returns(() => query_volUsers.GetEnumerator());
          //   mock_users.Setup( f => f.Users).Returns(mock_users.Name); // Some list to contain fake users
-            mock_users.Setup(u => u.Add(It.IsAny<VolunteerUser>())).Callback((VolunteerUser v) => app_users.Add(v));
+            mock_users.Setup(u => u.Add(It.IsAny<VolunteerUser>())).Callback((DbSet<VolunteerUser> v) => app_users.Add(v));
             mock_users.Setup(u => u.Remove(It.IsAny<VolunteerUser>())).Callback((VolunteerUser v) => app_users.Remove(v));
-
         }
 
         //do this feature all the way thru, test, method, and angular then go on to next
@@ -177,9 +176,11 @@ namespace VolunteerTrack.Tests.DAL
         [TestMethod]
         public void EnsureCanEditActivity(string UserName)
         {
+            //Arrange //Act
             ConnectToDatastore();
-            Repo.GetAllActivitiesForCurrentUser(UserName).ToList();
-          
+            var _list = Repo.GetAllActivitiesForCurrentUser(UserName).ToList();
+            //Assert
+            Assert.IsNotNull(_list);
         }   
  
         [TestMethod]
